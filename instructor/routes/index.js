@@ -12,7 +12,8 @@ var storage = multer.diskStorage({
   }, 
   filename: (req, file, cb) => { 
       cb(null, file.fieldname + '-' + Date.now()+".png"); 
-  } 
+  }, 
+  limits: { fileSize:  5000000  }
 }); 
 
 var upload = multer({ storage: storage }); 
