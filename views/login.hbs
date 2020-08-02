@@ -40,7 +40,7 @@
       {{/if}}            
     <div class="card card-body">
       <h1 class="text-center mb-3"><i class="fas fa-sign-in-alt"></i> Login</h1>
-      <form action="" method="POST">
+      <form action="/users/login" method="POST">
         <div class="form-group">
           <label for="email">Email</label>
           <input
@@ -61,11 +61,11 @@
             placeholder="Enter Password"
           />
         </div>
-        <button formaction="/users/login" type="submit" class="btn btn-primary btn-block">Login</button>
+        <button  type="submit" class="btn btn-primary btn-block">Login</button>
       
       </form>
-      <p class="lead mt-4">
-        No Account? <a href="/student/register">Register</a>
+      <p class="lead mt-4 ">
+        No Account? <a href="/users/register">Register</a>
       </p>
     </div>
   </div>

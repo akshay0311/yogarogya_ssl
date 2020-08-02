@@ -56,11 +56,14 @@
                         </div> 
                     <br>
                     <br>
+                    <br>
                     <!---Personal Info----->
-                    <p><b class="w3-text-blue-gray">Name:&nbsp;&nbsp;</b>{{name}}</p>
-                    <p><b class="w3-text-blue-gray">Phone No:&nbsp;&nbsp;</b>{{phone}}</p>
-                    <p><b class="w3-text-blue-gray">EmailId:&nbsp;&nbsp;</b>{{email}}</p>   
-                    <p><b class="w3-text-blue-gray">Address:&nbsp;&nbsp;</b>{{address}}</p>                
+                    <div class="w3-container w3-left-align">
+                      <p><b class="w3-text-blue-gray">Name:&nbsp;&nbsp;</b>{{name}}</p>
+                      <p><b class="w3-text-blue-gray">Phone No:&nbsp;&nbsp;</b>{{phone}}</p>
+                      <p><b class="w3-text-blue-gray">EmailId:&nbsp;&nbsp;</b>{{email}}</p>   
+                      <p><b class="w3-text-blue-gray">Address:&nbsp;&nbsp;</b>{{address}}</p>       
+                    </div>                   
                 </div>
             </div>
         </div>
@@ -94,7 +97,8 @@
               <div class="container">
                       {{#each ct}}
                          <div class="container">
-                                <span>{{this.name}}</span>
+                                {{this.name}}</span>
+                                <br>
                                 <br>
                                 <div class="progress">
                                 <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="{{this.progress}}"

@@ -55,7 +55,7 @@ router.get('/dashboard',checkAuthenticated, (req, res) =>{
 
 
 // GET PICTURES ROUTE
-router.post('/dashboard1',upload.array('pics',10),(req,res)=>{
+router.post('/dashboard',upload.array('pics',10),(req,res)=>{
   if (req.files!=undefined){
     u_name = req.user.email.split("@")[0];
     User.findOne({ email: req.body.email }).then(user => {
