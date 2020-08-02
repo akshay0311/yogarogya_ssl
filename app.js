@@ -10,9 +10,10 @@ const fs = require('fs');
 var multer = require("multer");
 const bodyParser = require("body-parser");
 const User = require('./instructor/models/User.js');
+const Profile = require('./student/models/profile.js');
 
-// Passport Config
-require('./config/passport')(passport);
+
+
 
 
 
@@ -66,13 +67,16 @@ app.use(function(req, res, next) {
   next();
 });
 
-// Routes
+// Routes for instructors
 app.use('/', require('./instructor/routes/index.js'));
 app.use('/users', require('./instructor/routes/users.js'));
 
 
+//Routes for students
+app.use('/student', require('./student/routes/profile'));
 
-
+//Routes for packages
+app.use('/package', require('./student/routes/package'));
 
 
 

@@ -7,13 +7,17 @@ const multer = require("multer");
 const User = require('../models/User');
 const nodemailer = require("nodemailer");
 
+var initializePassport = require('../../config/passport');
+initializePassport(passport);
+
+
 // storage strategy in multer
 var storage = multer.diskStorage({ 
   destination: (req, file, cb) => { 
       cb(null, './uploads') 
   }, 
   filename: (req, file, cb) => { 
-      cb(null, file.fieldname +"-"+ Date.getday()+".png"); 
+      cb(null, file.fieldname +"-"+ Date.now()+".png"); 
   }, 
   limits: { fileSize:  5000000  }
 }); 
@@ -49,25 +53,16 @@ function sendMail(output){
 }
 
 
-
-
-
-// Authentication
-const { ensureAuthenticated, forwardAuthenticated } = require('../../config/auth');
-const { route } = require('.');
-
-
-
 // Login Page
-router.get('/login', forwardAuthenticated, (req, res) => res.render('login'));
+router.get('/login', (req, res) => res.render('login'));
 
 // Register Page
-router.get('/register', forwardAuthenticated, (req, res) => res.render('register'));
+router.get('/register', (req, res) => res.render('register'));
 
 
 // Post route for  Login
 router.post('/login', (req, res, next) => {
-  passport.authenticate('local', {
+  passport.authenticate('Instructor', {
     successRedirect: '/users/profile',
     failureRedirect: '/users/login',
     failureFlash: true
@@ -83,7 +78,7 @@ router.get('/logout', (req, res) => {
 
 
 //  Profile Page
-router.get('/profile', ensureAuthenticated, (req, res) => {
+router.get('/profile', checkAuthenticated, (req, res) => {
   var user = req.user;
   res.render('profile',{
     name:user.name,
@@ -231,7 +226,7 @@ router.post('/register', (req, res) => {
 /********KYC Route **********************/
 // kyc get route
 var bool = true; 
-router.get('/kyc',ensureAuthenticated,(req,res,next)=>{
+router.get('/kyc',checkAuthenticated,(req,res,next)=>{
     var user = req.user;
     var email = req.user.email;
     if (!user.accnt_num){
@@ -294,11 +289,16 @@ router.post('/kyc',upload.fields([{
 })
 /*------------------ TESTIMONIAL ROUTE-------------------*/
 // GET route for testimonial
-router.get('/testimonials',ensureAuthenticated,(req,res)=>{
+router.get('/testimonials',checkAuthenticated,(req,res)=>{
     res.render('testimonials')
 });
 
-
+//check authenticated
+function checkAuthenticated(req,res,next){
+  if (req.isAuthenticated())
+      return next();
+  else res.redirect('/users/login')    
+}
 
 
 module.exports = router;

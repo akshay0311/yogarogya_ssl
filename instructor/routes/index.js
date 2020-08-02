@@ -1,9 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const { ensureAuthenticated, forwardAuthenticated } = require('../../config/auth');
 const multer = require("multer");
 var fs = require('fs');
-var route =  "http://localhost:5000/";
+var passport = require('passport');
 var path = require('path');
 //Storage Config
 var storage = multer.diskStorage({ 
@@ -20,15 +19,17 @@ var upload = multer({ storage: storage });
 
 // Load User model
 const User = require('../models/User');
+var initializePassport = require('../../config/passport');
+initializePassport(passport);
 
 
 
 // GET Welcome Page
-router.get('/', forwardAuthenticated, (req, res) => res.render('welcome'));
+router.get('/', (req, res) => res.render('welcome'));
 
 
 //  GET Dashboard  Route
-router.get('/dashboard', ensureAuthenticated, (req, res) =>{
+router.get('/dashboard',checkAuthenticated, (req, res) =>{
   var user = req.user;
   u_name = req.user.email.split("@")[0];
   console.log(user.qual5.q);
@@ -48,8 +49,7 @@ router.get('/dashboard', ensureAuthenticated, (req, res) =>{
     qual5 : user.qual5,
     qual6 : user.qual6,
     qual7 : user.qual7,
-    qual8 : user.qual8,
-    route: route
+    qual8 : user.qual8
   })
 });
 
@@ -188,10 +188,17 @@ router.post("/dashboard/delete",(req,res)=>{
      if (d8) {fs.unlink(pth8,(err)=>{if (err) res.redirect("/dashboard"); else  res.redirect("/dashboard");});}
 })
 
-router.get("/terms",forwardAuthenticated,(req,res)=>{
+router.get("/terms",(req,res)=>{
   res.render("terms")
 })
 
+
+//check authenticated
+function checkAuthenticated(req,res,next){
+  if (req.isAuthenticated())
+      return next();
+  else res.redirect('/users/login')    
+}
 
 
 
