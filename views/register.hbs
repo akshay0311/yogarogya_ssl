@@ -28,10 +28,11 @@
   
 <div class="row mt-5">
   <div class="col-md-6 m-auto">
-    <div class="card card-body">
+    <div class="card card-body w3-border w3-border-black w3-round-large">
       <h1 class="text-center mb-3">
-        <i class="fas fa-user-plus"></i> Register
+        <i class="fas fa-user-plus"></i> Instructor Register
       </h1>
+      <br>
       <!--Name-->
       {{#if errors}}
             {{#each errors}}
@@ -40,7 +41,7 @@
             </div>
             {{/each}}
       {{/if}}
-      <form action="/users/register" method="POST">
+      <form action="/users/register" method="POST" class="w3-text-dark-gray">
         <div class="form-group">
           <label for="name">Full Name</label>
           <input
@@ -95,15 +96,16 @@
         </div>
         <br>
         <br>
-        <a class="w3-text-red" href="/terms">Click To: Read Terms & Condition</a>
+        &nbsp;Read <a class="w3-text-red mb-4" href="/terms">Terms & Condition</a>
         <br>
-        <input type="checkbox" class="ml-2 form-check-input" name="optradio"value="I accept"><b class="ml-4">I accept terms & conditons </b>
+        <br>
+        <input type="checkbox" class="ml-2 form-check-input" name="optradio"value="I accept"><b class="ml-4">&nbsp;I accept terms & conditons </b>
         <br>
         <br>
         <button type="submit" class="btn btn-primary btn-block">Register</button>
         <br>
       </form>  
-      <p class="lead mt-4">Have An Account? <a class="w3-text-blue" href="/users/login">Login</a></p>
+      <p class="w3-large mt-4">Have An Account? <a class="w3-text-blue" href="/users/login">Login</a></p>
     </div>
   </div>
 </div>

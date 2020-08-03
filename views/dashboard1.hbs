@@ -41,17 +41,18 @@
                     <br>
                         <p class="w3-center"><img src="http://localhost:5000/{{pp}}" class="w3-circle" style="height:110px;width:106px" alt="Avatar"
                          onerror=this.src="http://localhost:5000/avatar.png"></p>
+                         <br>
                     <div class="w3-center">
                         <!----Upload Profile Pic ---->
                         <div class="dropdown">
                         <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
                          Upload Profile Pic
                         </button>
-                        <div class="dropdown-menu">
+                        <div class="w3-small dropdown-menu" style="max-width: 120px;">
                             <form action="/student/dash" method="POST" enctype="multipart/form-data">
                                 <input type="hidden" id="email" name="email" value="{{email}}">
-                                <input type="file" name="student_profile_pic"><br>   
-                                <button class="btn btn-info" type="submit">Upload</button>
+                                <input type="file" name="profile_pic"><br>   
+                                <button class=" w3-tiny btn btn-info" type="submit">Upload</button>
                             </form>
                         </div> 
                     <br>
@@ -62,7 +63,11 @@
                       <p><b class="w3-text-blue-gray">Name:&nbsp;&nbsp;</b>{{name}}</p>
                       <p><b class="w3-text-blue-gray">Phone No:&nbsp;&nbsp;</b>{{phone}}</p>
                       <p><b class="w3-text-blue-gray">EmailId:&nbsp;&nbsp;</b>{{email}}</p>   
-                      <p><b class="w3-text-blue-gray">Address:&nbsp;&nbsp;</b>{{address}}</p>       
+                      <p><b class="w3-text-blue-gray">Country:&nbsp;&nbsp;</b>{{country}}</p>  
+                      <p><b class="w3-text-blue-gray">State:&nbsp;&nbsp;</b>{{state}}</p>  
+                      <p><b class="w3-text-blue-gray">City:&nbsp;&nbsp;</b>{{city}}</p>  
+                      <p><b class="w3-text-blue-gray">Street:&nbsp;&nbsp;</b>{{street}}</p>  
+                      <p><b class="w3-text-blue-gray">Pincode:&nbsp;&nbsp;</b>{{pincode}}</p>       
                     </div>                   
                 </div>
             </div>

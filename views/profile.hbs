@@ -27,12 +27,22 @@
     </div>
     <br>
 <!----------Main Page--------------------->
-
+<!--Error Display------------------>
+<div class="container w3-round-xxlarge">
+   {{#if flag}}
+  {{else}}
+        <div class="alert alert-warning w3-small alert-dismissible fade show" role="alert">
+        <p class="w3-center pt-2 w3-text-black w3-large">
+          <i>Complete your profile</i>
+        </p>    
+    </div>
+  {{/if}}    
+</div>
 <!--Personal Info-->
 <form  method="POST">
         <div class="container"  style="max-width: 800px; width:100%">
     <p class="w3-xxlarge w3-center"><b>Your Personal Info</b></p>
-    <div class="row  w3-border w3-border w3-panel w3-padding-large">
+    <div class="row  w3-border w3-border-black w3-round w3-panel w3-padding-large">
         <div class="col-md-12">
             <!--Full Name-->
                 <div class="form-group">

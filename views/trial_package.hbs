@@ -1,0 +1,356 @@
+<div>
+          <nav class="navbar navbar-expand-lg navbar-dark navbar-custom w3-padding-large w3-round-large">
+          <a class="navbar-brand" href="/"><p class="w3-text-black w3-xlarge pr-3 pt-2" style="font-family: 'Noto Sans JP', sans-serif;">YOGAROGYA</p></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item active">
+                <a class="nav-link mr-3 w3-text-black" href="/dashboard"><i class="fa fa-home"></i>Dashboard</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link mr-3 w3-text-black" href="/users/profile">Profile</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link mr-3 w3-text-black" href="/users/testimonials">Testimonials</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link mr-3 w3-text-black" href="/users/kyc">KYC</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link mr-3  w3-text-black" href="/users/logout">Logout</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+    </div>
+    <br>
+    <br>
+<!---------------------------------Main Page-------------------------------------->
+<div class="container w3-padding-large" style="max-width: 700px;">
+ <div class="row">
+    <div class="col-sm-12">   
+    <!----------------------Carousel--------------->
+    <div id="demo" class="carousel slide w3-center w3-container" data-interval="false" data-ride="carousel">
+  
+  <!------------------------Form---------------------------->
+  <!--Form is filled with slides-------------------->
+  <form action="/package/book_trial" method = "POST">
+      <div class="carousel-inner">
+           <!----1 Choose your method Slide------->
+       <div class="carousel-item active">
+                <div class="w3-container w3-border w3-border-gray w3-padding-large" style="min-height: 300px;">
+                    <p class="w3-xlarge"><b>Select</b></p>
+                    <div class="w3-container w3-left-align m-5 w3-border-bottom">
+                        <input type="radio" class="method" id="online" name="method" value="online">
+                        <label class="w3-medium" for="online"><b>Online</b></label><br>
+                    </div>
+                    <div class="w3-container w3-left-align m-5 w3-border-bottom w3-panel">
+                        <input type="radio" class="method" id="person" name="method" value="person">
+                        <label class="w3-medium" for="person"><b>In person</b></label><br>
+                    </div>
+                </div>
+            </div> 
+             <!--2 Gender Input Slide----->
+            <div class="carousel-item">
+                <div class="w3-container w3-border w3-border-gray w3-padding-large" style="min-height: 300px;">
+                    <p class="w3-xlarge"><b>What is your gender?</b></p>
+                    <div class="w3-container  w3-left-align m-5 w3-border-bottom" style="">
+                        <input type="radio" id="male" class="gender" name="gender" value="male">
+                        <label class="w3-medium" for="male"><b>Male</b></label><br>
+                    </div>
+                    <div class="w3-container w3-left-align m-5 w3-border-bottom w3-panel">
+                        <input type="radio" id="female" class="gender" name="gender" value="female">
+                        <label class="w3-medium" for="female"><b>Female</b></label><br>
+                    </div>
+                </div>
+            </div>
+            <!--------------------3 choose your program--------------->
+            <div class="carousel-item">
+                <div class="w3-container w3-panel w3-border w3-border-black w3-round-large w3-padding-large">
+                    <p class="w3-xlarge"><b>Choose your program</b></p>
+                    <br>
+                    <br>
+                    <div class="container">
+                      <!---Row 1----->
+                        <div class="row mb-3">
+                          <!--Weight Loss Programme-->
+                            <div class="col-md-6">
+                                  <div class="w3-card-4 w3-round-xlarge mb-4" style="width: 200px; 200px;">
+                                        <label>
+                                            <input type="radio" id="weight" name="program" class="program" value="weight" hidden>
+                                              <img src="obesity.png" width='100%;' height="150px;">
+                                        </label>
+                                        <div class="w3-container w3-padding-large">
+                                             <p class="w3-medium"><b>Weight Loss Programme</b></p>
+                                        </div>
+                                   </div>
+                            </div>
+                            <br>
+                            <!---Immmunity Booster Programme--->
+                             <div class="col-md-6">
+                                  <div class="w3-card-4 w3-round-xlarge mb-4" style="width: 200px; 200px;">
+                                        <label>
+                                            <input type="radio" id="immunity" name="program" class="program" value="immunity" hidden>
+                                              <img src="immunity.png" width='100%;' height="150px;">
+                                        </label>
+                                        <div class="w3-container w3-padding-large">
+                                             <p class="w3-medium"><b>Immunity Booster Programme</b></p>
+                                        </div>
+                                   </div>
+                            </div>
+                        </div>
+                        <br>
+                        <br>
+                        <!----Row 2--->
+                        <div class="row ">
+                            <!----Diabetes Control Programme---->
+                            <div class="col-md-6">
+                                  <div class="w3-card-4 w3-round-xlarge mb-4" style="width: 200px; 200px;">
+                                        <label>
+                                            <input type="radio" id="diabetes" name="program" class="program" value="diabetes" hidden>
+                                              <img src="diabetes.png" width='100%;' height="150px;">
+                                        </label>
+                                        <div class="w3-container w3-padding-large">
+                                             <p class="w3-medium"><b>Diabetes Programme</b></p>
+                                        </div>
+                                   </div>
+                            </div>
+                            <!--Spine Stengthening --->
+                             <div class="col-md-6">
+                                  <div class="w3-card-4 w3-round-xlarge mb-4" style="width: 200px; 200px;">
+                                        <label>
+                                            <input type="radio" id="spine" name="program" class="program" value="spine" hidden>
+                                              <img src="spine.png" width='100%;' height="150px;">
+                                        </label>
+                                        <div class="w3-container w3-padding-large">
+                                             <p class="w3-medium"><b>Spine Strengthening Programme</b></p>
+                                        </div>
+                                   </div>
+                            </div>
+                        </div>
+                        <br>
+                        <br>
+                        <!----------Row 3-------->
+                        <div class="row">
+                          <!---Post Natal Programme--->
+                        <div class="col-md-6 gx-3">
+                                  <div class="w3-card-4 w3-round-xlarge mb-4" style="width: 200px; 200px;">
+                                        <label>
+                                            <input type="radio" id="post" name="program" class="program" value="post" hidden>
+                                              <img src="post.png" width='100%;' height="150px;">
+                                        </label>
+                                        <div class="w3-container w3-padding-large">
+                                             <p class="w3-medium"><b>Post Natal Programme</b></p>
+                                        </div>
+                                   </div>
+                            </div>
+                            <!-----Pink Programme------------>
+                            <div class="col-md-6">
+                                  <div class="w3-card-4 w3-round-xlarge mb-4" style="width: 200px; 200px;">
+                                        <label>
+                                            <input type="radio" id="pink" name="program" class="program" value="pink" hidden>
+                                              <img src="pink.png" width='100%;' height="150px;">
+                                        </label>
+                                        <div class="w3-container w3-padding-large">
+                                             <p class="w3-medium"><b>Pink Programme</b></p>
+                                        </div>
+                                   </div>
+                            </div>
+                          </div>
+                            <br>  
+                            <!---Row 4-->
+                            <div class="row">
+                              <!--Meditation Programme---->
+                                  <div class="col-md-6">
+                                    <div class="w3-card-4 w3-round-xlarge mb-4" style="width: 200px; 200px;">
+                                          <label>
+                                              <input type="radio" id="meditation" name="program" class="program" value="meditation" hidden>
+                                                <img src="meditation.jpg" width='100%;' height="150px;">
+                                          </label>
+                                          <div class="w3-container w3-padding-large">
+                                              <p class="w3-medium"><b>Relaxation & Meditation Programme</b></p>
+                                          </div>
+                                    </div>
+                                  </div>
+                            </div>  
+                    </div>  
+              </div>
+          </div> <!----Programme Ends--------->
+          
+          <!-----4 Choose your partner---------> 
+          <div class="carousel-item">
+              <div class="w3-container w3-panel w3-border w3-border-black w3-round-large" style="padding: 50px;">
+                  <p class="w3-xlarge"><b>Choose your partner</b></p>
+                  <br>
+                 <div class="container">
+                   <!--Row 1--->
+                     <div class="row">
+                       <!--Single---->
+                         <div class="col-md-6">
+                            <div class="w3-card-4 w3-round-xlarge mb-4" style="width: 200px; 200px;">
+                                  <label>
+                                      <input type="radio" id="single" name="partner" class="partner" value="single" hidden>
+                                        <img src="single.png" width='100%;' height="150px;">
+                                  </label>
+                                  <div class="w3-container w3-padding-large">
+                                      <p class="w3-medium"><b>Single</b></p>
+                                  </div>
+                            </div>
+                          </div>
+                          <!---Couple-----> 
+                          <div class="col-md-6">
+                            <div class="w3-card-4 w3-round-xlarge mb-4" style="width: 200px; 200px;">
+                                  <label>
+                                      <input type="radio" id="couple" name="partner" class="partner" value="couple" hidden>
+                                        <img src="couple.png" width='100%;' height="150px;">
+                                  </label>
+                                  <div class="w3-container w3-padding-large">
+                                      <p class="w3-medium"><b>Couple</b></p>
+                                  </div>
+                            </div>
+                          </div>        
+                     </div>
+                     <!----Row2--->
+                     <div class="row">
+                       <!----Group Training------->
+                        <div class="col-md-6">
+                            <div class="w3-card-4 w3-round-xlarge mb-4" style="width: 200px; 200px;">
+                                  <label>
+                                      <input type="radio" id="group" name="partner" class="partner" value="group" hidden>
+                                        <img src="group.png" width='100%;' height="150px;">
+                                  </label>
+                                  <div class="w3-container w3-padding-large">
+                                      <p class="w3-medium"><b>Group</b></p>
+                                  </div>
+                            </div>
+                          </div>   
+                     </div>
+                 </div>
+              </div>
+          </div>
+          <!----------------5 Time Slide ------------------------->
+          <div class="carousel-item">
+                <div class="w3-container w3-border w3-border-gray w3-padding-large" style="min-height: 300px;">
+                    <p class="w3-xlarge"><b>How often do you want to workout?</b></p>
+                    <div class="w3-container  w3-left-align m-5 w3-border-bottom">
+                        <input type="radio" id="daily" class="time" name="time" value="daily">
+                        <label class="w3-medium" for="daily"><b>Daily</b></label><br>
+                    </div>
+                    <div class="w3-container w3-left-align m-5 w3-border-bottom w3-panel">
+                        <input type="radio" id="three" class="time" name="time" value="three">
+                        <label class="w3-medium" for="three"><b>Three times a week</b></label><br>
+                    </div>
+                    <div class="w3-container w3-left-align m-5 w3-border-bottom w3-panel">
+                        <input type="radio" id="trainer" class="time" name="time" value="trainer">
+                        <label class="w3-medium" for="trainer"><b>Ask your trainer</b></label><br>
+                    </div>
+                </div>
+            </div>
+            <!---------6 Register Slide----------- ----->
+            <div class="carousel-item">
+              <div class="w3-container w3-border w3-border-gray w3-padding-large" style="min-height: 300px;">
+                 <p class="w3-xlarge"><b>Submit your info</b></p>
+                  <div class="w3-container  w3-left-align m-5">
+                    <div class="form-group">
+                      <label for="name"><b>Name</b></label>
+                      <input  type="name" id="name"  name="name"  class="form-control" placeholder="Enter Name"/>
+                    </div>
+                    <div class="form-group">
+                      <label for="email"><b>Email</b></label>
+                      <input  type="email" id="email"  name="email"  class="form-control" placeholder="Enter Email"/>
+                    </div>
+                    <div class="form-group">
+                      <label for="password"><b>Password</b></label>
+                      <input  type="password" id="password"  name="password"  class="form-control" placeholder="Enter Password"/>
+                    </div>
+                  </div>  
+              </div>
+            </div> 
+            <!--------------7 Package Detail----------->   
+            <div class="carousel-item">
+              <div class="w3-container w3-padding-large" style="min-height: 300px;">
+                 <p class="w3-xlarge"><b>Package Detail</b></p>
+                  <div class="w3-container  w3-left-align m-5">
+                    <div class="classes-item" style="height:578px;">
+                      <div class="ci-img">
+                        <img src="img/classes/2.jpg" alt="">
+                      </div>
+                      <div class="ci-text">
+                        <h4><b>Package Detail</b></h4>
+                        <div class="ci-metas">
+                          <div class="ci-meta"><i class="material-icons">event_available</i>Mon, Wed, Fri</div>
+                          <div class="ci-meta"><i class="material-icons">alarm_on</i>06:30pm - 07:45pm</div>
+                        </div>
+                        <p>We understand your innate desire to attain excellence.Curate program with best in class trainer</p>
+                      </div>
+                      <button  type="submit" class="btn btn-primary btn-lg">Submit</button>
+                    </div>
+                 </div>  
+              </div>
+            </div>    
+            <!---------- 8 Payment Details ----------------------------> 
+    </form>
+  <!-- Left and right controls -->
+  <a class="left carousel-control-prev" href="#demo" role='button'>
+    <span class="carousel-control-prev-icon"></span>
+  </a>
+  <a class="right carousel-control-next" href="#demo" role='button'>
+    <span class="carousel-control-next-icon"></span>
+  </a>
+</div>
+</div>
+</div>    
+</div>
+
+
+<!------------Javascript for Geocoding and Google Map-------------------------->
+<script>
+    $(document).ready(function(){
+      // Enable Carousel Controls
+      // Right Side movement
+      var f = 0;
+      $(".gender").click(function(){
+         f = 1;
+      })
+      $(".method").click(function(){
+         f = 1;
+      })
+      $(".program").click(function(){
+         f = 1;
+      })
+      $(".partner").click(function(){
+         f = 1;
+      })
+       $(".time").click(function(){
+         f = 1;
+      })
+       $("#name").keypress(function(){
+         f = 1;
+      })
+      $("#email").keypress(function(){
+         f = 1;
+      })
+      $("#password").keypress(function(){
+         f = 1;
+      })
+
+
+
+        $(".right").click(function(){
+          if (f == 1){
+          $("#demo").carousel("next");
+          }
+          else alert("Choose one of the option");
+          f = 0;
+      });
+
+      $(".left").click(function(){
+        $("#demo").carousel("prev");
+        });
+    })
+</script>
+ <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA372PcuJQKYrKADjhHTLLDVcfsoCzF-4M&callback=initMap">
+    </script>

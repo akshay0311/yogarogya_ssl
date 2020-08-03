@@ -27,10 +27,7 @@
     </div>  
   
   <br>
-  <!--Type of Login Page-->
-  <div class="container w3-center">
-      <h2 class="w3-text-dark-gray">Instructor</h2>
-  </div>
+ 
   <div class="row mt-5">
   <div class="col-md-6 m-auto">
       {{#if error}}
@@ -38,9 +35,9 @@
                    <p>{{error}}</p>
       </div> 
       {{/if}}            
-    <div class="card card-body">
-      <h1 class="text-center mb-3"><i class="fas fa-sign-in-alt"></i> Login</h1>
-      <form action="/users/login" method="POST">
+    <div class="card card-body w3-border w3-border-black w3-round-large">
+      <h1 class="text-center mb-3"><i class="fas fa-sign-in-alt"></i>&nbsp;Instructor Login</h1>
+      <form action="/users/login" method="POST" class="w3-text-dark-gray">
         <div class="form-group">
           <label for="email">Email</label>
           <input
@@ -64,8 +61,9 @@
         <button  type="submit" class="btn btn-primary btn-block">Login</button>
       
       </form>
-      <p class="lead mt-4 ">
-        No Account? <a href="/users/register">Register</a>
+        <br>
+        <p class="w3-large">No Account?
+       <a class="w3-text-blue" href="/users/register">Register</a>
       </p>
     </div>
   </div>

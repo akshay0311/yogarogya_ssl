@@ -25,27 +25,31 @@
           </div>
         </nav>
     </div>
+    <br>
 <!----Page-------->
-{{#if bool}}
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-      <p class="w3-center w3-xlarge ">
+<div class="container w3-round-xxlarge">
+    {{#if bool}}
+    <div class="alert alert-success w3-small alert-dismissible fade show" role="alert">
+      <p class="w3-center pt-2 w3-xlarge w3-text-black">
         <i>KYC DONE</i>
       </p>
     </div>  
 {{else}}
-    <div class="alert alert-warning alert-dismissible fade show" role="alert">
-        <p class="w3-center w3-xlarge">
+    <div class="alert alert-warning w3-small alert-dismissible fade show" role="alert">
+        <p class="w3-center pt-2 w3-xlarge w3-text-black">
           <i>KYC NOT DONE</i>
         </p>    
     </div>
 {{/if}}
+</div>
 
-
-
+<br>
 <!--Personal Info-->
 <form action="/users/kyc" method="POST" enctype="multipart/form-data">
-        <div class="container" style="max-width: 800px; width:100%">
+        <div class="container w3-border w3-border-black w3-round" style="max-width: 800px; width:100%">
     <p class="w3-xxlarge w3-center"><b>Your Bank Details:</b></p>
+    <br>
+    <br>
     <div class="row  w3-border w3-panel w3-padding-large">
          <input type="hidden" id="email" name="email" value="{{email}}">
         <div class="col-md-12">

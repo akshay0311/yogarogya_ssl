@@ -47,25 +47,27 @@
                         <p class="w3-center"><img src="https://yogarogya.in/{{p}}" class="w3-circle" style="height:110px;width:106px" alt="Avatar"
                          onerror=this.src="https://yogarogya.in/avatar.png"></p>
                     <div class="w3-center">
+                        <br>
                         <!----Upload Profile Pic ---->
                         <div class="dropdown">
                         <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
                          Upload Profile Pic
                         </button>
-                        <div class="dropdown-menu">
+                        <div class="dropdown-menu w3-small" style="max-width: 120px;">
                             <form action="/dashboard/upload1" method="POST" enctype="multipart/form-data"  onsubmit="myFunc()">
                                 <input type="hidden" id="email" name="email" value="{{email}}">
                                 <input type="file" name="profile_pic"><br>   
-                                <button class="btn btn-info" type="submit">Upload</button>
+                                <button class="w3-tiny btn btn-info" type="submit">Upload</button>
                             </form>
                             <br>
                             <form action="/dashboard/delete" method="POST">
                                 <input type="hidden" id="email" name="pp" value="{{p}}">  
-                                <button type="submit" class="btn btn-warning w3-text-black">Delete</button>
+                                <button type="submit" class=" w3-tiny btn btn-warning w3-text-black">Delete</button>
                             </form>
                          </div>
                         </div>        
                     </div> 
+                    <br>
                     <br>
                     <!--Rating---->
                     <p class="w3-center">
@@ -162,19 +164,19 @@
                                     Upload Pics
                                     </button>
                                     <!----Upload Pics --->
-                                    <div class="dropdown-menu">
+                                    <div class="dropdown-menu w3-small" style="max-width: 120px;">
                                         <div class="container">
                                             <form action="/dashboard/upload2" enctype="multipart/form-data" method="POST">
                                                     <input type="text" value= "{{email}}"  name="email" hidden>     
                                                     <input type="text" value= "" id="h1" name="h1"   hidden>
                                                     <input type="file" name="certificate">
-                                                    <button class="btn btn-info" id="r" >Upload</button>
+                                                    <button class="w3-tiny btn btn-info" id="r" >Upload</button>
                                                     <br>
                                                 </form>
                                                 <br>
                                                 <form  method="POST">   
                                                     <input type="text" value= "{{qual1.c_img_path}}" id="d1" name="d1"   hidden>
-                                                    <button class="btn btn-warning w3-text-black" formaction="/dashboard/delete" >Delete</button>
+                                                    <button class="w3-tiny btn btn-warning w3-text-black" formaction="/dashboard/delete" >Delete</button>
                                                 </form>
                                         </div>
                                     </div>
@@ -195,19 +197,19 @@
                                     Upload Pics
                                     </button>
                                     <!----Upload Pics --->
-                                    <div class="dropdown-menu">
+                                    <div class="dropdown-menu w3-small" style="max-width: 120px;">
                                         <div class="container">
                                             <form action="/dashboard/upload2" enctype="multipart/form-data" method="POST">
                                                     <input type="text" value= "{{email}}"  name="email" hidden>     
                                                     <input type="text" value= "" id="h2" name="h2"   hidden>
                                                     <input type="file" name="certificate">
-                                                    <button class="btn btn-info" id="s" >Upload</button>
+                                                    <button class="w3-tiny btn btn-info" id="s" >Upload</button>
                                                     <br>                                        
                                                 </form>
                                                 <br>
                                                 <form  method="POST">   
                                                     <input type="text" value= "{{qual2.c_img_path}}" id="d2" name="d2"   hidden>
-                                                    <button class="btn btn-warning w3-text-black" formaction="/dashboard/delete" >Delete</button>
+                                                    <button class="w3-tiny btn btn-warning w3-text-black" formaction="/dashboard/delete" >Delete</button>
                                                 </form>
                                         </div>
                                     </div>
@@ -228,19 +230,19 @@
                                     Upload Pics
                                     </button>
                                     <!----Upload Pics --->
-                                    <div class="dropdown-menu">
+                                    <div class="dropdown-menu w3-small" style="max-width: 120px;">
                                         <div class="container">
                                             <form action="/dashboard/upload2" enctype="multipart/form-data" method="POST">
                                                     <input type="text" value= "{{email}}"  name="email" hidden>     
                                                     <input type="text" value= "" id="h3" name="h3"   hidden>
                                                     <input type="file" name="certificate">
-                                                    <button class="btn btn-info" id="t" >Upload</button>
+                                                    <button class="w3-tiny btn btn-info" id="t" >Upload</button>
                                                     <br>
                                                     <br>
                                                 </form>
                                                 <form  method="POST">   
                                                     <input type="text" value= "{{qual3.c_img_path}}" id="d3" name="d3"   hidden>
-                                                    <button class="btn btn-warning w3-text-black" formaction="/dashboard/delete" >Delete</button>
+                                                    <button class="w3-tiny btn btn-warning w3-text-black" formaction="/dashboard/delete" >Delete</button>
                                                 </form>
                                         </div>
                                     </div>
@@ -261,20 +263,20 @@
                                     Upload Pics
                                     </button>
                                     <!----Upload Pics --->
-                                    <div class="dropdown-menu">
+                                    <div class="dropdown-menu w3-small" style="max-width: 120px;">
                                         <div class="container">
                                             <form action="/dashboard/upload2" enctype="multipart/form-data" method="POST">
                                                     <input type="text" value= "{{email}}"  name="email" hidden>     
                                                     <input type="text" value= "" id="h4" name="h4"   hidden>
                                                     <input type="text" value= "appi" id="h" name="h"   hidden>
                                                     <input type="file" name="certificate">
-                                                    <button class="btn btn-info" id="u" >Upload</button>
+                                                    <button class="w3-tiny btn btn-info" id="u" >Upload</button>
                                                     <br>
                                                     <br>
                                                 </form>
                                                 <form  method="POST">   
                                                     <input type="text" value= "{{qual4.c_img_path}}" id="d4" name="d4"   hidden>
-                                                    <button class="btn btn-warning w3-text-black" formaction="/dashboard/delete" >Delete</button>
+                                                    <button class="w3-tiny btn btn-warning w3-text-black" formaction="/dashboard/delete" >Delete</button>
                                                 </form>
                                         </div>
                                     </div>
@@ -295,18 +297,18 @@
                                     Upload Pics
                                     </button>
                                     <!----Upload Pics --->
-                                    <div class="dropdown-menu">
+                                    <div class="dropdown-menu w3-small" style="max-width: 120px;">
                                         <div class="container">
                                             <form action="/dashboard/upload2" enctype="multipart/form-data" method="POST">
                                                     <input type="text" value= "{{email}}"  name="email" hidden>     
                                                     <input type="text" value= "" id="h5" name="h5"   hidden>
                                                     <input type="file" name="certificate">
-                                                    <button class="btn btn-info" id="v" type="submit">Upload</button>
+                                                    <button class="w3-tiny btn btn-info" id="v" type="submit">Upload</button>
                                                 </form>
                                                 <br>
                                                 <form  method="POST">   
                                                     <input type="text" value= "{{qual5.c_img_path}}" id="d5" name="d5"   hidden>
-                                                    <button class="btn btn-warning w3-text-black" formaction="/dashboard/delete" >Delete</button>
+                                                    <button class="w3-tiny btn btn-warning w3-text-black" formaction="/dashboard/delete" >Delete</button>
                                                 </form>
                                         </div>
                                     </div>
@@ -327,18 +329,18 @@
                                     Upload Pics
                                     </button>
                                     <!----Upload Pics --->
-                                    <div class="dropdown-menu">
+                                    <div class="dropdown-menu w3-small" style="max-width: 120px;">
                                         <div class="container">
                                             <form action="/dashboard/upload2" enctype="multipart/form-data" method="POST">
                                                     <input type="text" value= "{{email}}"  name="email" hidden>     
                                                     <input type="text" value= "" id="h6" name="h6"   hidden>
                                                     <input type="file" name="certificate">
-                                                    <button class="btn btn-info" id="w" type="submit">Upload</button>
+                                                    <button class="w3-tiny btn btn-info" id="w" type="submit">Upload</button>
                                                 </form>
                                                 <br>
                                                 <form  method="POST">   
                                                     <input type="text" value= "{{qual6.c_img_path}}" id="d6" name="d6"   hidden>
-                                                    <button class="btn btn-warning w3-text-black" formaction="/dashboard/delete" >Delete</button>
+                                                    <button class="w3-tiny btn btn-warning w3-text-black" formaction="/dashboard/delete" >Delete</button>
                                                 </form>
                                         </div>
                                     </div>
@@ -359,18 +361,18 @@
                                     Upload Pics
                                     </button>
                                     <!----Upload Pics --->
-                                    <div class="dropdown-menu">
+                                    <div class="dropdown-menu w3-small" style="max-width: 120px;">
                                         <div class="container">
                                             <form action="/dashboard/upload2" enctype="multipart/form-data" method="POST">
                                                     <input type="text" value= "{{email}}"  name="email" hidden>     
                                                     <input type="text" value= "" id="h7" name="h7"   hidden>
                                                     <input type="file" name="certificate">
-                                                    <button class="btn btn-info" id="x" type="submit">Upload</button>
+                                                    <button class="w3-tiny btn btn-info" id="x" type="submit">Upload</button>
                                                 </form>
                                                 <br>
                                                 <form  method="POST">   
                                                     <input type="text" value= "{{qual7.c_img_path}}" id="d7" name="d7"   hidden>
-                                                    <button class="btn btn-warning w3-text-black" formaction="/dashboard/delete" >Delete</button>
+                                                    <button class="w3-tiny btn btn-warning w3-text-black" formaction="/dashboard/delete" >Delete</button>
                                                 </form>
                                         </div>
                                     </div>
@@ -391,18 +393,18 @@
                                     Upload Pics
                                     </button>
                                     <!----Upload Pics --->
-                                    <div class="dropdown-menu">
+                                    <div class="dropdown-menu w3-small" style="max-width: 120px;">
                                         <div class="container">
                                             <form action="/dashboard/upload2" enctype="multipart/form-data" method="POST">
                                                     <input type="text" value= "{{email}}"  name="email" hidden>     
                                                     <input type="text" value= "" id="h8" name="h8"   hidden>
                                                     <input type="file" name="certificate">
-                                                    <button class="btn btn-info" id="y" type="submit">Upload</button>
+                                                    <button class="w3-tiny btn btn-info" id="y" type="submit">Upload</button>
                                                 </form>
                                                 <br>
                                                 <form  method="POST">   
                                                     <input type="text" value= "{{qual8.c_img_path}}" id="d8" name="d8"   hidden>
-                                                    <button class="btn btn-warning w3-text-black" formaction="/dashboard/delete" >Delete</button>
+                                                    <button class="w3-tiny btn btn-warning w3-text-black" formaction="/dashboard/delete" >Delete</button>
                                                 </form>
                                         </div>
                                     </div>
@@ -429,12 +431,12 @@
                          Upload Pics
                         </button>
                         <!----Upload Pics --->
-                        <div class="dropdown-menu">
+                        <div class="dropdown-menu w3-small" style="max-width: 120px;">
                             <form action="/dashboard1" method="POST" enctype="multipart/form-data">
                                 <input type="hidden" id="email" name="email" value="{{email}}">
                                 <input type="file" name="pics" multiple><br>   
                                 <br>
-                                <button type="submit" class="btn btn-info">Upload</button>
+                                <button type="submit" class="w3-tiny btn btn-info">Upload</button>
                             </form>
                          </div>
                         </div>     

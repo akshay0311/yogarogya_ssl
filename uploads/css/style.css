@@ -604,7 +604,7 @@ only screen and (min-width: 576px) and (max-width: 767px),
 }
 
 .slicknav_nav {
-	background: #333;
+	background: lightgray;
 }
 
 .slicknav_btn {

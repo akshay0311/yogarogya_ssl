@@ -10,7 +10,7 @@ const nodemailer = require("nodemailer");
 var initializePassport = require('../../config/passport');
 initializePassport(passport);
 
-
+var flag = 0,route;
 // storage strategy in multer
 var storage = multer.diskStorage({ 
   destination: (req, file, cb) => { 
@@ -62,8 +62,9 @@ router.get('/register', (req, res) => res.render('register'));
 
 // Post route for  Login
 router.post('/login', (req, res, next) => {
+  if (flag == 1) route='/dashboard'; else route = '/users/profile';
   passport.authenticate('Instructor', {
-    successRedirect: '/users/profile',
+    successRedirect: route,
     failureRedirect: '/users/login',
     failureFlash: true
   })(req, res, next);
@@ -80,6 +81,12 @@ router.get('/logout', (req, res) => {
 //  Profile Page
 router.get('/profile', checkAuthenticated, (req, res) => {
   var user = req.user;
+  // search if any quality missing
+  if ((user.qual1.q || user.qual2.q || user.qual3.q || user.qual4.q ||
+    user.qual5.q || user.qual6.q || user.qual7.q||user.qual8.q) &&user.bio)
+       flag = 1;  else flag = 0;
+  
+  // render page     
   res.render('profile',{
     name:user.name,
     email:user.email,
@@ -94,7 +101,8 @@ router.get('/profile', checkAuthenticated, (req, res) => {
     qual6 : user.qual6,
     qual7 : user.qual7,
     qual8 : user.qual8,
-    pp : user.pr_img_path
+    pp : user.pr_img_path,
+    flag : flag
   }) 
 })
 
@@ -107,6 +115,7 @@ router.get('/profile', checkAuthenticated, (req, res) => {
 router.post("/profile",(req,res)=>{
   var {email,bio,name,phone,address} = req.body;
   var {q1,q2,q3,q4,q5,q6,q7,q8} = req.body;// qualifcation
+  // search for email in collection
   User.findOne({ email: email }).then(user => { 
     user.qual1.q = q1;
     user.qual2.q = q2;
@@ -115,7 +124,13 @@ router.post("/profile",(req,res)=>{
     user.qual5.q = q5; 
     user.qual6.q = q6;
     user.qual7.q = q7;
-    user.qual8.q = q8;  
+    user.qual8.q = q8;
+    
+    // search if any quality missing
+    if ((user.qual1.q || user.qual2.q || user.qual3.q || user.qual4.q ||
+       user.qual5.q || user.qual6.q || user.qual7.q||user.qual8.q)&&user.bio)
+          flag = 1;  else flag = 0;
+
       user.bio = bio;
       user.name = name;
       user.phone = phone;
@@ -258,7 +273,7 @@ router.post('/kyc',upload.fields([{
 
   if (accnt_num) {
          bool = true;
-         res.redirect('/dashboard');
+         res.redirect('/users/kyc');
       }
   else bool = false;
   User.findOne({email:email}).then((user=>{

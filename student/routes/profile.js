@@ -45,10 +45,6 @@ router.get('/logout', (req, res) => {
   req.flash('success_msg', 'You are logged out');
   res.redirect('/');
 });  
-// error page 
-router.get('/error',(req,res)=>{
-  res.render('error1')
-})
 
 // Get route for  Logout
 router.get('/logout', (req, res) => {
@@ -60,10 +56,13 @@ router.get('/logout', (req, res) => {
 /*--------------------post route -------*/
 //8: Post route for Registration
 router.post('/register', (req, res) => {
-  const { name, email, phone,password, password2,address} = req.body;
+  const { name, email, phone,password, password2,country,state,pincode,city,street} = req.body;
   let errors = [];
 
-  if (!name || !email || !password || !password2 || !address) {
+  if (!name || !email || !password || !password2){
+    name,
+    email,
+    password,
     errors.push({ msg: 'Please enter all fields' });
   }
 
@@ -81,7 +80,6 @@ router.post('/register', (req, res) => {
       name,
       email,
       password,
-      password2,
       phone
     });
   } else {
@@ -95,7 +93,11 @@ router.post('/register', (req, res) => {
           password,
           password2,
           phone,
-          address
+          country,
+          city,
+          state,
+          pincode,
+          street
         });
       } else {
         //creating new user
@@ -104,7 +106,11 @@ router.post('/register', (req, res) => {
           email,
           password,
           phone,
-          address
+          country,
+          city,
+          state,
+          pincode,
+          street
         });
 
         bcrypt.genSalt(10, (err, salt) => {
@@ -114,6 +120,7 @@ router.post('/register', (req, res) => {
             newUser
               .save()
               .then(user => {
+                console.log(user);
                 req.flash(
                   'success_msg',
                   'You are now registered and can log in'
@@ -136,7 +143,11 @@ router.get('/dashboard',checkAuthenticated,(req,res)=>{
   {
     name:user.name,
     email:user.email,
-    address:user.address,
+    country:user.country,
+    city: user.city,
+    state: user.state,
+    street : user.street,
+    pincode: user.pincode,
     phone : user.phone,
     pp:user.profile_pic,
     ct : ct
@@ -145,7 +156,7 @@ router.get('/dashboard',checkAuthenticated,(req,res)=>{
 })
 
 // uploading profile pic
-router.post("/dash",upload.single("student_profile_pic"),(req,res)=>{
+router.post("/dashboard",upload.single("profile_pic"),(req,res)=>{
   if (req.file!=undefined){
     Student.findOne({ email: req.body.email }).then(user => {
       user.profile_pic = req.file.filename;
@@ -154,7 +165,11 @@ router.post("/dash",upload.single("student_profile_pic"),(req,res)=>{
       {
           name:user.name,
           email:user.email,
-          address:user.address,
+          country:user.country,
+          city: user.city,
+          state: user.state,
+          street : user.street,
+          pincode: user.pincode,
           phone : user.phone,
           pp:user.profile_pic,
       }
@@ -163,6 +178,7 @@ router.post("/dash",upload.single("student_profile_pic"),(req,res)=>{
   })
   .catch(err=>console.log(err));
 }
+else res.redirect('/student/dashboard');
 });
 
 
