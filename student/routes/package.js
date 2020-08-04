@@ -19,6 +19,9 @@ router.get('/',(req,res,next)=>{
 router.post('/book_trial',(req,res,next)=>{
       /*--------------- Users Login Info------------------*/
       const {gender,partner,time,name,program,email,password,method} = req.body;
+      if (!gender||!partner||!time||!name||!program||!email||!password||!method)
+          res.redirect('/package');
+      else{    
       const newUser = new Student({
             gender,
             partner,
@@ -40,6 +43,6 @@ router.post('/book_trial',(req,res,next)=>{
             .catch(err => console.log(err));
       })
       })
-})            
-
+}           
+})
 module.exports = router;
