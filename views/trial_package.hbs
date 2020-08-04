@@ -40,228 +40,188 @@
 
     <!---Everything Inside Modal----->
     <div class="modal fade" id="myModal">
-        <div class="modal-dialog modal-md">
-        <div class="modal-content">
+        <div class="modal-dialog modal-xlg" style="min-width:70%;height:2000px !important;">
+        <div class="modal-content" style="height: 100%;">
       
 
     <!----------------------Carousel--------------->
-    <div id="demo" class="carousel slide w3-center " data-interval="false" data-ride="carousel">
+    <div id="demo" class="carousel slide w3-center" data-interval="false" data-ride="carousel">
   
   <!------------------------Form---------------------------->
   <!--Form is filled with slides-------------------->
   <form action="/package/book_trial" method = "POST">
       <div class="carousel-inner">
            <!----1 Choose your method Slide------->
-       <div class="carousel-item active">
-                <div class="w3-container  w3-padding-large" style="font-family: 'Montserrat', sans-serif;">
-                    <p class="w3-xxlarge w3-text-black" ><b>Select Between</b></p>
-                    <div class="w3-container w3-left-align m-5 w3-border-bottom">
+              <div class="carousel-item active">
+                  <div class="w3-container  w3-padding-large" style="font-family: 'Montserrat', sans-serif;">
+                    <p class="w3-xlarge w3-text-black w3-panel w3-light-gray" ><b>Select Between</b></p>
+                    <br>
+                       <div class="w3-container  w3-left-align m-5 w3-border-bottom">  
                         <input type="radio" class="method" id="online" name="method" value="online">
-                        <label class="w3-large" for="online"><b>&nbsp;Online</b></label><br>
+                        <label class="w3-medium" for="online"><b>&nbsp;Online</b></label><br>
                     </div>
-                    <div class="w3-container w3-left-align m-5 w3-border-bottom w3-panel">
+                     <div class="w3-container  w3-left-align m-5 w3-border-bottom">
                         <input type="radio" class="method" id="person" name="method" value="person">
-                        <label class="w3-large" for="person"><b>&nbsp;In person</b></label><br>
+                        <label class="w3-medium" for="person"><b>&nbsp;In person</b></label><br>
                     </div>
-                </div>
-            </div> 
+                </div> 
+            </div>        
              <!--2 Gender Input Slide----->
             <div class="carousel-item">
-                <div class="w3-container  w3-padding-large" style="min-height: 300px;">
-                    <p class="w3-xxlarge w3-text-black"><b>What is your gender?</b></p>
+                <div class="w3-container  w3-padding-large" style="font-family: 'Montserrat', sans-serif;">
+                    <p class="w3-xlarge w3-text-black w3-panel w3-light-gray"><b>What is your gender?</b></p>
+                    <br>
                     <div class="w3-container  w3-left-align m-5 w3-border-bottom">
                         <input type="radio" id="male" class="gender" name="gender" value="male">
-                        <label class="w3-large" for="male"><b>&nbsp;Male</b></label><br>
+                        <label class="w3-medium" for="male"><b>&nbsp;Male</b></label><br>
                     </div>
                     <div class="w3-container w3-left-align m-5 w3-border-bottom w3-panel">
                         <input type="radio" id="female" class="gender" name="gender" value="female">
-                        <label class="w3-large" for="female"><b>&nbsp;Female</b></label><br>
+                        <label class="w3-medium" for="female"><b>&nbsp;Female</b></label><br>
                     </div>
                 </div>
             </div>
-            <!--------------------3 choose your program--------------->
+            <!---------Program Slide------------->
             <div class="carousel-item">
-                <div class="w3-container w3-padding" style="font-family: 'Montserrat', sans-serif;">
-                    <p class="w3-xxlarge"><b>Choose your program</b></p>
+                  <div class="w3-container w3-padding-small" style="font-family: 'Montserrat', sans-serif;">
+                     <p class="w3-xlarge w3-text-black w3-panel w3-light-gray"><b>Choose your program</b></p>
                     <br>
-                    <br>
-                    <div class="container">
-                      <!---Row 1----->
-                        <div class="row mb-3">
-                          <!--Weight Loss Programme-->
-                            <div class="col-md-6">
-                                  <div class="w3-card-4 w3-round-xlarge mb-4" style="width:200px;">
-                                        <label>
-                                            <input type="radio" id="weight" name="program" class="program" value="weight" hidden>
-                                              <img src="obesity.png" width='100%;' height="150px;">
-                                        </label>
-                                        <div class="w3-container w3-padding-large">
-                                             <p class="w3-medium"><b>Weight Loss Programme</b></p>
-                                        </div>
-                                   </div>
-                            </div>
-                            <br>
-                            <!---Immmunity Booster Programme--->
-                             <div class="col-md-6">
-                                  <div class="w3-card-4 w3-round-xlarge mb-4" style="width:200px;">
-                                        <label>
-                                            <input type="radio" id="immunity" name="program" class="program" value="immunity" hidden>
-                                              <img src="immunity.png" width='100%;' height="150px;">
-                                        </label>
-                                        <div class="w3-container w3-padding-large">
-                                             <p class="w3-medium"><b>Immunity Booster Programme</b></p>
-                                        </div>
-                                   </div>
-                            </div>
-                        </div>
-                        <br>
-                        <br>
-                        <!----Row 2--->
-                        <div class="row ">
-                            <!----Diabetes Control Programme---->
-                            <div class="col-md-6">
-                                  <div class="w3-card-4 w3-round-xlarge mb-4" style="width:200px;">
-                                        <label>
-                                            <input type="radio" id="diabetes" name="program" class="program" value="diabetes" hidden>
-                                              <img src="diabetes.png" width='100%;' height="150px;">
-                                        </label>
-                                        <div class="w3-container w3-padding-large">
-                                             <p class="w3-medium"><b>Diabetes Programme</b></p>
-                                        </div>
-                                   </div>
-                            </div>
-                            <!--Spine Stengthening --->
-                             <div class="col-md-6">
-                                  <div class="w3-card-4 w3-round-xlarge mb-4">
-                                        <label>
-                                            <input type="radio" id="spine" name="program" class="program" value="spine" hidden>
-                                              <img src="spine.png" width='100%;' height="150px;">
-                                        </label>
-                                        <div class="w3-container w3-padding-large">
-                                             <p class="w3-medium"><b>Spine Strengthening Programme</b></p>
-                                        </div>
-                                   </div>
-                            </div>
-                        </div>
-                        <br>
-                        <br>
-                        <!----------Row 3-------->
-                        <div class="row">
-                          <!---Post Natal Programme--->
-                        <div class="col-md-6 gx-3">
-                                  <div class="w3-card-4 w3-round-xlarge mb-4" >
-                                        <label>
-                                            <input type="radio" id="post" name="program" class="program" value="post" hidden>
-                                              <img src="post.png" width='100%;'>
-                                        </label>
-                                        <div class="w3-container w3-padding-large">
-                                             <p class="w3-medium"><b>Post Natal Programme</b></p>
-                                        </div>
-                                   </div>
-                            </div>
-                            <!-----Pink Programme------------>
-                            <div class="col-md-6">
-                                  <div class="w3-card-4 w3-round-xlarge mb-4" style="width:200px;">
-                                        <label>
-                                            <input type="radio" id="pink" name="program" class="program" value="pink" hidden>
-                                              <img src="pink.png" width='100%;'>
-                                        </label>
-                                        <div class="w3-container w3-padding-large">
-                                             <p class="w3-medium"><b>Pink Programme</b></p>
-                                        </div>
-                                   </div>
-                            </div>
+                   <div class="card-columns">
+                      <div class="card ml-5" style="width:70%;">
+                            <label>
+                              <input type="radio" name="program" class="program" value="small" hidden>
+                              <img src="obesity.png">
+                            </label>
+                          <div class="w3-container w3-padding-large">
+                              <b>Weight Loss Programme</b>
                           </div>
-                            <br>  
-                            <!---Row 4-->
-                            <div class="row">
-                              <!--Meditation Programme---->
-                                  <div class="col-md-6">
-                                    <div class="w3-card-4 w3-round-xlarge mb-4" style="width:200px;">
-                                          <label>
-                                              <input type="radio" id="meditation" name="program" class="program" value="meditation" hidden>
-                                                <img src="meditation.jpg" width='100%;' height="150px;">
-                                          </label>
-                                          <div class="w3-container w3-padding-large">
-                                              <p class="w3-medium"><b>Relaxation & Meditation Programme</b></p>
-                                          </div>
-                                    </div>
-                                  </div>
-                            </div>  
+                      </div>
+                      <div class="card ml-5" style="width:70%;">
+                            <label>
+                              <input type="radio" name="program" class="program" value="diabetes control" hidden>
+                              <img src="diabetes.png">
+                            </label>
+                          <div class="w3-container w3-padding-large">
+                              <b>Diabetes Control Programme</b>
+                          </div>
+                      </div>
+                      <div class="card ml-5" style="width:70%;">
+                            <label>
+                              <input type="radio" name="program" class="program" value="immunity control" hidden>
+                              <img src="immunity.png">
+                            </label>
+                          <div class="w3-container w3-padding-large">
+                              <b>Immunity Booster Programme</b>
+                          </div>
+                      </div>
+                   </div>
+                    <div class="card-columns">
+                      <div class="card ml-5" style="width:70%;">
+                            <label>
+                              <input type="radio" name="program" class="program" value="spine strengthening" hidden>
+                              <img src="spine.png">
+                            </label>
+                          <div class="w3-container w3-padding-large">
+                              <b>Spine Strengthening Programme</b>
+                          </div>
+                      </div>
+                      <div class="card ml-5" style="width:70%;">
+                            <label>
+                              <input type="radio" name="program" class="program" value="post natal" hidden>
+                              <img src="post.png">
+                            </label>
+                          <div class="w3-container w3-padding-large">
+                              <b>Post Natal Programme</b>
+                          </div>
+                      </div>
+                      <div class="card ml-5" style="width:70%;">
+                            <label>
+                              <input type="radio" name="program" class="program" value="pink" hidden>
+                              <img src="pink.png">
+                            </label>
+                          <div class="w3-container w3-padding-large">
+                              <b>Pink Programme</b>
+                          </div>
+                      </div>
                     </div>  
-              </div>
-          </div> <!----Programme Ends--------->
+                      <div class="card-columns">
+                          <div class="card ml-5" style="width:70%;">
+                              <label>
+                                <input type="radio" name="program" class="program" value="meditation" hidden>
+                                <img src="meditation.jpg">
+                              </label>
+                              <div class="w3-container w3-padding-large">
+                                  <b>Meditation & Relaxation Programme</b>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+            </div>      
           <!-----4 Choose your partner---------> 
             <div class="carousel-item">
-              <div class="w3-container  w3-padding-large" style="min-height: 300px;">
-                <p class="w3-xlarge"><b>Choose your partner</b></p>
+              <div class="w3-container  w3-padding-large" style="font-family: 'Montserrat', sans-serif;">
+                <p class="w3-xlarge w3-text-black w3-panel w3-light-gray"><b>Choose your partner</b></p>
                 <br>
                 <div class="w3-container  w3-left-align m-5 w3-border-bottom">
                     <input type="radio" id="single" name="partner" class="partner" value="single">
-                      <label for='single'>Single</label>
+                      <label for='single'><b>&nbsp;Single</b></label>
                 </div>
                 <div class="w3-container w3-left-align m-5 w3-border-bottom">
                      <input type="radio" id="couple" name="partner" class="partner" value="couple">
-                    <label for ='couple'>Couple</label>
+                    <label for ='couple'><b>&nbsp;Couple</b></label>
                 </div>
                 <div class="w3-container w3-left-align m-5 w3-border-bottom">
                     <input type="radio" id="group" name="partner" class="partner" value="group">
-                    <label for ='group'>Group</label>  
+                    <label for ='group'><b>&nbsp;Group</b></label>  
                 </div>                  
               </div>                    
           </div>
             <!----------------5 Time Slide ------------------------->
           <div class="carousel-item">
-                <div class="w3-container  w3-padding-large" style="min-height: 300px;">
-                    <p class="w3-xlarge"><b>How often do you want to workout?</b></p>
+                <div class="w3-container  w3-padding-large" style="font-family: 'Montserrat', sans-serif;">
+                    <p class="w3-xlarge w3-text-black w3-panel w3-light-gray"><b>How often do you want to workout?</b></p>
                     <div class="w3-container  w3-left-align m-5 w3-border-bottom">
                         <input type="radio" id="daily" class="time" name="time" value="daily">
-                        <label class="w3-medium" for="daily"><b>Daily</b></label><br>
+                        <label class="w3-small" for="daily"><b>&nbsp;Daily</b></label><br>
                     </div>
                     <div class="w3-container w3-left-align m-5 w3-border-bottom w3-panel">
                         <input type="radio" id="three" class="time" name="time" value="three">
-                        <label class="w3-medium" for="three"><b>Three times a week</b></label><br>
+                        <label class="w3-small" for="three"><b>Three times a week</b></label><br>
                     </div>
                     <div class="w3-container w3-left-align m-5 w3-border-bottom w3-panel">
                         <input type="radio" id="trainer" class="time" name="time" value="trainer">
-                        <label class="w3-medium" for="trainer"><b>Ask your trainer</b></label><br>
+                        <label class="w3-small" for="trainer"><b>&nbsp;Ask your trainer</b></label><br>
                     </div>
                 </div>
             </div>
             <!---------6 Register Slide----------- ----->
             <div class="carousel-item">
-              <div class="w3-container  w3-padding-large" style="min-height: 300px;">
-                 <p class="w3-xlarge"><b>Submit your info</b></p>
+              <div class="w3-container" style="font-family: 'Montserrat', sans-serif;">
+                 <p class="w3-xlarge w3-text-black w3-panel w3-light-gray"><b>Submit your info</b></p>
                   <div class="w3-container  w3-left-align m-5">
                     <div class="form-group">
-                      <label for="name"><b>Name</b></label>
+                      <label for="name"><b>Name:</b></label>
                       <input  type="name" id="name"  name="name"  class="form-control" placeholder="Enter Name"/>
                     </div>
                     <div class="form-group">
-                      <label for="email"><b>Email</b></label>
+                      <label for="email"><b>Email:</b></label>
                       <input  type="email" id="email"  name="email"  class="form-control" placeholder="Enter Email"/>
                     </div>
                     <div class="form-group">
-                      <label for="password"><b>Password</b></label>
+                      <label for="password"><b>Password:</b></label>
                       <input  type="password" id="password"  name="password"  class="form-control" placeholder="Enter Password"/>
                     </div>
+                    <div class="form-group">
+                      <label for="phone"><b>Phone:</b></label>
+                      <input  type="password" id="phone"  name="phone"  class="form-control" placeholder="Enter Password"/>
+                    </div>
+                    <br>
+                    <button class="btn btn-dark btn-block">Submit & Pay</button>
                   </div>  
               </div>
             </div> 
-            <!--------------7 Package Detail----------->   
-            <div class="carousel-item">
-                <div class="w3-container">
-                    <div class="w3-card-4" style="width:50%">
-                  <div class="w3-display-container w3-center">
-                    <img src="img/classes/2.jpg" alt="Lights" style="width:100%">
-                  </div>
-                </div>
-                </div>
-                <br>
-            <button class="btn btn-primary">Submit</button> 
-            </div>
         </div>         
-            <!---------- 8 Payment Details ----------------------------> 
+            <!---------- 8 Picking Time Slot ----------------------------> 
     </form>
   <!-- Left and right controls -->
   <a class="left carousel-control-prev" href="#demo" role='button'>
@@ -290,7 +250,7 @@
          f = 1;
       })
       $(".program").click(function(){
-         f = 1;
+         f = 1
       })
       $(".partner").click(function(){
          f = 1;
