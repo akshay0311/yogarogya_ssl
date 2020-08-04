@@ -15,13 +15,16 @@ initializePassport(passport);
 router.get('/',(req,res,next)=>{
       res.render('trial_package')    
 })
+router.post('/geo',(req,res,next)=>{
+      res.redirect('/package');
+})
 // posting trial 
 router.post('/book_trial',(req,res,next)=>{
       /*--------------- Users Login Info------------------*/
-      const {gender,partner,time,name,program,email,password,method} = req.body;
-      if (!gender||!partner||!time||!name||!program||!email||!password||!method)
-          res.redirect('/package');
-      else{    
+      const {gender,partner,time,name,program,email,password,method,phone} = req.body;
+      if (!gender||!partner||!time||!name||!program||!email||!password||!method ||!phone){
+            res.render('trial_package',{error:"true"});
+      }else{    
       const newUser = new Student({
             gender,
             partner,
@@ -30,7 +33,8 @@ router.post('/book_trial',(req,res,next)=>{
             method,
             name,
             email,
-            password
+            password,
+            phone
       });
       bcrypt.genSalt(10, (err, salt) => {
             bcrypt.hash(newUser.password, salt, (err, hash) => {

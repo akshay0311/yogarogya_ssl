@@ -117,6 +117,38 @@
                       {{/each}}
               </div>
               <br>
-        </div>    
+        </div>
+        <br>
+        <div class="w3-card w3-round w3-white">
+            <div class="container pt-4">
+                   <span class="w3-xlarge" style="font-family: 'Recursive', sans-serif;">Your Current Location</span>
+            </div>
+            <br>
+            <br>
+             <div class="container w3-center">
+                 <button class="btn btn-info btn-lg">Your current location</button>
+             </div>      
+            </div>
+        </div>  
     </div>
-            
+
+
+    <!--Script For Geotagging------------->
+    <script>
+      function getloc(){    
+        // For Geolocation
+        if ('geolocation' in navigator){
+          console.log("geo");
+          navigator.geolocation.getCurrentPosition(function(p){
+            var lat = p.coords.latitude;
+            var long = p.coords.longitude;
+            map(lat,long);
+          })
+        }
+      }
+      function map(lat,long){
+   //Fetching  Geocoding Api
+          document.getElementById("map").src="https://maps.locationiq.com/v2/staticmap?key=c75901e187710e&center="+lat+","+long+"&zoom=18";
+      }
+    </script>  
+          
