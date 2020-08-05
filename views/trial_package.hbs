@@ -47,7 +47,7 @@
 
     <!---Everything Inside Modal----->
     <div class="modal fade" id="myModal">
-        <div class="modal-dialog modal-xlg" style="min-width:70%;height:2000px !important;">
+        <div class="modal-dialog modal-xlg" style="min-width:70%;min-height:1000px !important;">
         <div class="modal-content" style="height: 100%;">
       
 
@@ -60,7 +60,7 @@
       <div class="carousel-inner">
            <!----1 Choose your method Slide------->
               <div class="carousel-item active">
-                  <div class="w3-container  w3-padding-large ml-md-5" style="font-family: 'Montserrat', sans-serif;">
+                  <div class="w3-container  w3-padding-large" style="font-family: 'Montserrat', sans-serif;">
                     <p class="w3-xlarge w3-text-black w3-panel w3-light-gray" ><b>Select Between</b></p>
                     <br>
                        <div class="w3-container  w3-left-align m-5 w3-border-bottom">  
@@ -75,7 +75,7 @@
             </div>        
              <!--2 Gender Input Slide----->
             <div class="carousel-item">
-                <div class="w3-container  w3-padding-large  ml-md-5" style="font-family: 'Montserrat', sans-serif;">
+                <div class="w3-container  w3-padding-large " style="font-family: 'Montserrat', sans-serif;">
                     <p class="w3-xlarge w3-text-black w3-panel w3-light-gray"><b>What is your gender?</b></p>
                     <br>
                     <div class="w3-container  w3-left-align m-5 w3-border-bottom">
@@ -166,7 +166,7 @@
             </div>      
           <!-----4 Choose your partner---------> 
             <div class="carousel-item">
-              <div class="w3-container  w3-padding-large  ml-md-5" style="font-family: 'Montserrat', sans-serif;">
+              <div class="w3-container  w3-padding-large " style="font-family: 'Montserrat', sans-serif;">
                 <p class="w3-xlarge w3-text-black w3-panel w3-light-gray"><b>Choose your partner</b></p>
                 <br>
                 <div class="w3-container  w3-left-align m-5 w3-border-bottom">
@@ -185,25 +185,62 @@
           </div>
             <!----------------5 Time Slide ------------------------->
           <div class="carousel-item">
-                <div class="w3-container  w3-padding-large  ml-md-5" style="font-family: 'Montserrat', sans-serif;">
+                <div class="w3-container w3-padding-small" style="font-family: 'Montserrat', sans-serif;">
                     <p class="w3-xlarge w3-text-black w3-panel w3-light-gray"><b>How often do you want to workout?</b></p>
                     <div class="w3-container  w3-left-align m-5 w3-border-bottom">
                         <input type="radio" id="daily" class="time" name="time" value="daily">
-                        <label class="w3-small" for="daily"><b>&nbsp;Daily</b></label><br>
+                        <label class="w3-medium" for="daily"><b>&nbsp;Daily</b></label><br>
                     </div>
                     <div class="w3-container w3-left-align m-5 w3-border-bottom w3-panel">
                         <input type="radio" id="three" class="time" name="time" value="three">
-                        <label class="w3-small" for="three"><b>Three times a week</b></label><br>
+                        <label class="w3-medium" for="three"><b>Three times a week</b></label><br>
                     </div>
                     <div class="w3-container w3-left-align m-5 w3-border-bottom w3-panel">
                         <input type="radio" id="trainer" class="time" name="time" value="trainer">
-                        <label class="w3-small" for="trainer"><b>&nbsp;Ask your trainer</b></label><br>
+                        <label class="w3-medium" for="trainer"><b>&nbsp;Ask your trainer</b></label><br>
                     </div>
                 </div>
             </div>
+            <!---------------6 Pick time slot---------------------->
+             <div class="carousel-item">
+                <div class="w3-container w3-padding-small " style="font-family: 'Montserrat', sans-serif;">
+                 <p class="w3-xlarge w3-text-black w3-panel w3-light-gray"><b>Pick up your time slot</b></p>
+                 <br>
+                 <br>
+                 <p>When would you like your first session?</p>
+                <br>
+                <label for="day">Choose a day:</label>
+                  <select name="day" id="day">
+                    <option value="today">Today</option>
+                    <option value="tommorrow">Tommorrow</option>
+                    <option value="other">Other</option>
+                  </select>
+                  <br>
+                <label for="time">Choose time:</label>
+                  <select name="day" id="day">
+                    <option value="6am">6 am</option>
+                    <option value="7am">7 am</option>
+                    <option value="8am">8 am</option>
+                     <option value="9am">9 am</option>
+                      <option value="10am">10 am</option>
+                       <option value="11am">11 am</option>
+                       <option value="12am">12 am</option>
+                       <option value="1pm">1 pm</option>
+                       <option value="2pm">2 pm</option>
+                       <option value="3pm">3 pm</option>
+                       <option value="4pm">4 pm</option>
+                       <option value="5pm">5 pm</option>
+                       <option value="6pm">6 pm</option>
+                       <option value="7pm">7 pm</option>
+                       <option value="8pm">8 pm</option>
+                       <option value="9am">9 pm</option>
+                       <option value="10pm">10 pm</option>
+                  </select>  
+
+            </div> 
             <!---------6 Register Slide----------- ----->
             <div class="carousel-item">
-              <div class="w3-container w3-padding-small  ml-md-5" style="font-family: 'Montserrat', sans-serif;">
+              <div class="w3-container w3-padding-small " style="font-family: 'Montserrat', sans-serif;">
                  <p class="w3-xlarge w3-text-black w3-panel w3-light-gray"><b>Submit your info</b></p>
                   <div class="w3-container w3-border w3-border-dark-gray w3-round-large w3-padding-large w3-left-align m-5">
                     <div class="form-group">
@@ -226,13 +263,10 @@
                     <button class="btn btn-dark btn-block">Submit & Pay</button>
                   </div>  
               </div>
-            </div> 
+            </div>
         </div>                      
     </form>
-  <!-- Left and right controls -->
-  <a class="left carousel-control-prev" href="#demo" role='button'>
-    <span class="carousel-control-prev-icon"></span>
-  </a>
+  <!-- Right controls---> 
   <a class="right carousel-control-next" href="#demo" role='button'>
     <span class="carousel-control-next-icon"></span>
   </a>
@@ -290,9 +324,11 @@
 
 
       $(".left").click(function(){
-        $("#method").attr("id")
-        $("#demo").carousel("prev");
-        });
+        if ($("input").attr("value") == 'gender'){
+            console.log("t");
+            $("#demo").carousel("prev");
+        }
+      });
     })
 
     function getloc(){    
@@ -309,6 +345,4 @@
         }
     }
 </script>
- <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA372PcuJQKYrKADjhHTLLDVcfsoCzF-4M&callback=initMap">
-    </script>
+ 
