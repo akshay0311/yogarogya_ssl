@@ -18,7 +18,9 @@ var studentSchema = mongoose.Schema({
     time:String,
     method:String,
     program:String,
-    partner:String
+    partner:String,
+    timeSlot:String,
+    timeSlot1:String
 })
 
 

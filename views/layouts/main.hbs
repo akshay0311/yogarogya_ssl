@@ -14,7 +14,10 @@
 
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
+<link
+      rel="stylesheet"
+      href="https://bootswatch.com/4/journal/bootstrap.min.css"
+    />
 <!-- Popper JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 
@@ -70,6 +73,15 @@
         outline: 4px solid #f00;
       }
 
+      [type=radio] + div{
+        cursor: pointer;
+      }
+
+      /* CHECKED STYLES */
+      [type=radio]:checked + div{
+        outline: 4px solid #f00;
+      }
+
 
         .container-fluid {
           position: relative;
@@ -103,7 +115,7 @@
 
 
   </head>
-  <body>
+  <body onload="DayTime()">
     
     {{{body}}}
   </body>

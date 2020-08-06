@@ -47,7 +47,7 @@
 
     <!---Everything Inside Modal----->
     <div class="modal fade" id="myModal">
-        <div class="modal-dialog modal-xlg" style="min-width:70%;min-height:1000px !important;">
+        <div class="modal-dialog modal-xlg" style="min-width:70%;height:1000px !important;">
         <div class="modal-content" style="height: 100%;">
       
 
@@ -88,82 +88,99 @@
                     </div>
                 </div>
             </div>
-            <!---------Program Slide------------->
-            <div class="carousel-item">
-                  <div class="w3-container w3-padding-small" style="font-family: 'Montserrat', sans-serif;">
+            <!-----------------------------------Program Slide----------------------->
+                <div class="carousel-item">
                      <p class="w3-xlarge w3-text-black w3-panel w3-light-gray"><b>Choose your program</b></p>
                     <br>
-                   <div class="card-columns">
-                      <div class="card ml-5" style="width:70%;">
-                            <label>
-                              <input type="radio" name="program" class="program" value="small" hidden>
-                              <img src="obesity.png">
-                            </label>
-                          <div class="w3-container w3-padding-large">
-                              <b>Weight Loss Programme</b>
+                      <div class="container">
+                       <div class="row">
+                          <div class="col-6 col-md-4">
+                            <!-----------------------Weight Loss Card-------------------->
+                            <div class="card mb-3">
+                                <label>
+                                  <input type="radio" name="program" class="program" value="small" hidden>
+                                  <img src="obesity.png" width="100%">
+                                  <div class="card-body w3-medium">
+                                    <b>Weight Loss Programme</b>
+                                  </div>
+                                </label>  
+                            </div>
                           </div>
-                      </div>
-                      <div class="card ml-5" style="width:70%;">
-                            <label>
-                              <input type="radio" name="program" class="program" value="diabetes control" hidden>
-                              <img src="diabetes.png">
-                            </label>
-                          <div class="w3-container w3-padding-large">
-                              <b>Diabetes Control Programme</b>
-                          </div>
-                      </div>
-                      <div class="card ml-5" style="width:70%;">
-                            <label>
-                              <input type="radio" name="program" class="program" value="immunity control" hidden>
-                              <img src="immunity.png">
-                            </label>
-                          <div class="w3-container w3-padding-large">
-                              <b>Immunity Booster Programme</b>
-                          </div>
-                      </div>
-                   </div>
-                    <div class="card-columns">
-                      <div class="card ml-5" style="width:70%;">
-                            <label>
-                              <input type="radio" name="program" class="program" value="spine strengthening" hidden>
-                              <img src="spine.png">
-                            </label>
-                          <div class="w3-container w3-padding-large">
-                              <b>Spine Strengthening Programme</b>
-                          </div>
-                      </div>
-                      <div class="card ml-5" style="width:70%;">
-                            <label>
-                              <input type="radio" name="program" class="program" value="post natal" hidden>
-                              <img src="post.png">
-                            </label>
-                          <div class="w3-container w3-padding-large">
-                              <b>Post Natal Programme</b>
-                          </div>
-                      </div>
-                      <div class="card ml-5" style="width:70%;">
-                            <label>
-                              <input type="radio" name="program" class="program" value="pink" hidden>
-                              <img src="pink.png">
-                            </label>
-                          <div class="w3-container w3-padding-large">
-                              <b>Pink Programme</b>
-                          </div>
-                      </div>
-                    </div>  
-                      <div class="card-columns">
-                          <div class="card ml-5" style="width:70%;">
-                              <label>
-                                <input type="radio" name="program" class="program" value="meditation" hidden>
-                                <img src="meditation.jpg">
-                              </label>
-                              <div class="w3-container w3-padding-large">
-                                  <b>Meditation & Relaxation Programme</b>
+                          <div class="col-6 col-md-4">
+                            <!-----------------------Diabetes Control Card-------------------->
+                              <div class="card mb-3">
+                                  <label>
+                                    <input type="radio" name="program" class="program" value="diabetes control" hidden>
+                                          <img src="diabetes.png" width="100%">
+                                    <div class="card-body w3-medium">
+                                        <b>Diabetes Control Programme</b>
+                                    </div>
+                                  </label>  
                               </div>
-                          </div>
-                      </div>
-                  </div>
-            </div>      
+                          </div>  
+                          <div class="col-6 col-md-4">
+                            <!-----------------------Immuntiy Card-------------------->
+                              <div class="card mb-3">
+                                <label>
+                                    <input type="radio" name="program" class="program" value="immunity control" hidden>
+                                    <img src="immunity.png" width="100%">
+                                    <div class="card-body w3-medium">
+                                      <b>Immunity Booster Programme</b>
+                                    </div>
+                                </label>    
+                              </div>
+                          </div>  
+                          <div class="col-6 col-md-4">
+                            <!-----------------------Spine Strengthen Card-------------------->
+                              <div class="card mb-3">
+                                <label>
+                                    <input type="radio" name="program" class="program" value="spine strengthening" hidden>
+                                    <img src="spine.png"  width="100%">
+                                    <div class="card-body w3-medium">
+                                         <b>Spine Strengthen Programme</b>
+                                    </div>
+                                </label>    
+                              </div>
+                          </div>  
+                           <div class="col-6 col-md-4">
+                             <!-----------------------Post Natal Card-------------------->
+                              <div class="card mb-3">
+                                <label>
+                                    <input type="radio" name="program" class="program" value="post natal" hidden>
+                                    <img src="post.png"  width="100%">
+                                    <div class="card-body w3-medium">
+                                        <b>Post Natal Programme</b>
+                                    </div>
+                                </label>    
+                              </div>
+                          </div>  
+                           <div class="col-6 col-md-4">
+                             <!-----------------------Pink Card-------------------->
+                              <div class="card mb-3">
+                                <label>
+                                    <input type="radio" name="program" class="program" value="pink" hidden>
+                                    <img src="pink.png"  width="100%">
+                                    <div class="card-body w3-medium">
+                                        <b>Pink Programme</b>
+                                    </div>
+                                </label>    
+                              </div>
+                          </div> 
+                          <div class="col-6 col-md-4">
+                            <!-----------------------Meditation Card-------------------->
+                              <div class="card mb-3">
+                                <label>
+                                    <input type="radio" name="program" class="program" value="relaxation meditation" hidden>
+                                    <img src="meditation.jpg"  width="100%">
+                                    <div class="card-body w3-medium">
+                                        <b>Relaxation & Meditation Programme</b>
+                                    </div>
+                                </label>    
+                              </div>
+                          </div> 
+                        </div>     
+                      </div> 
+                </div>              
           <!-----4 Choose your partner---------> 
             <div class="carousel-item">
               <div class="w3-container  w3-padding-large " style="font-family: 'Montserrat', sans-serif;">
@@ -207,37 +224,194 @@
                  <p class="w3-xlarge w3-text-black w3-panel w3-light-gray"><b>Pick up your time slot</b></p>
                  <br>
                  <br>
+                 <!----Day row--------->
                  <p>When would you like your first session?</p>
                 <br>
-                <label for="day">Choose a day:</label>
-                  <select name="day" id="day">
-                    <option value="today">Today</option>
-                    <option value="tommorrow">Tommorrow</option>
-                    <option value="other">Other</option>
-                  </select>
-                  <br>
-                <label for="time">Choose time:</label>
-                  <select name="day" id="day">
-                    <option value="6am">6 am</option>
-                    <option value="7am">7 am</option>
-                    <option value="8am">8 am</option>
-                     <option value="9am">9 am</option>
-                      <option value="10am">10 am</option>
-                       <option value="11am">11 am</option>
-                       <option value="12am">12 am</option>
-                       <option value="1pm">1 pm</option>
-                       <option value="2pm">2 pm</option>
-                       <option value="3pm">3 pm</option>
-                       <option value="4pm">4 pm</option>
-                       <option value="5pm">5 pm</option>
-                       <option value="6pm">6 pm</option>
-                       <option value="7pm">7 pm</option>
-                       <option value="8pm">8 pm</option>
-                       <option value="9am">9 pm</option>
-                       <option value="10pm">10 pm</option>
-                  </select>  
-
-            </div> 
+                <div class="container w3-border w3-border-dark-gray w3-light-gray w3-padding-small w3-round-xlarge" style="width: 100%;">
+                    <div class="row">
+                       <div class="col-4">
+                              <label>
+                                <input type="radio" class="timeSlot" name="timeSlot" hidden>
+                                <div class="card w3-border w3-border-black w3-padding-large">
+                                  <p class="w3-small  w3-text-black">Tomorrow</p>
+                                  <p class="w3-large w3-text-black" id="tommorrow"></p>
+                                </div>
+                              </label>
+                       </div>
+                          <div class="col-4 ">
+                            <label>
+                                <input type="radio" class="timeSlot" name="timeSlot" hidden>
+                                <div class="card w3-border w3-border-black w3-padding-large">
+                                    <p class="w3-small w3-text-black" id="dayAfter"></p>
+                                     <p class="w3-large w3-text-black" id="dateAfter"></p>
+                                </div>
+                            </label>
+                          </div>
+                          <div class="col-4">
+                            <label>
+                                 <input type="radio"  class="timeSlot" name="timeSlot" hidden>
+                                <div class="card w3-border w3-border-black w3-padding-large">
+                                  <p class="w3-small w3-text-black" id="dayAfter1"></p>
+                                  <p class="w3-large w3-text-black" id="dateAfter1"></p>
+                                </div>
+                            </label>
+                       </div>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <!--Time Row ----->
+                <p>Pick up your time</p>
+                <div class="container w3-border w3-border-dark-gray w3-light-gray p-2 w3-round-xlarge">
+              <div class="row  mr-1">
+                   <div class="col-3 ">
+                       <label>
+                          <input type="radio" class="timeSlot1" name="timeSlot1" value="5 am" hidden>
+                            <div class="card w3-border w3-border-black w3-padding-large" >
+                              5 am
+                            </div>
+                       </label>
+                    </div>
+                    <div class="col-3">
+                       <label>
+                          <input type="radio" class="timeSlot1" name="timeSlot1" value="6 am" hidden>
+                            <div class="card w3-border w3-border-black w3-padding-large">
+                              6 am
+                            </div>
+                       </label>
+                    </div>
+                     <div class="col-3">
+                       <label>
+                          <input type="radio" class="timeSlot1" name="timeSlot1" value="7 am" hidden>
+                            <div class="card w3-border w3-border-black w3-padding-large">
+                              7 am
+                            </div>
+                       </label>
+                    </div>
+                     <div class="col-3">
+                       <label>
+                          <input type="radio" class="timeSlot1" name="timeSlot1" value="8 am" hidden>
+                            <div class="card w3-border w3-border-black w3-padding-large">
+                              8 am
+                            </div>
+                       </label>
+                    </div>
+                    <div class="col-3">
+                       <label>
+                          <input type="radio" class="timeSlot1 "name="timeSlot1" value="9 am" hidden>
+                            <div class="card w3-border w3-border-black w3-padding-large">
+                              9 am
+                            </div>
+                       </label>
+                    </div>
+                    <div class="col-3">
+                       <label>
+                          <input type="radio" class="timeSlot1" name="timeSlot1" value="10 am" hidden>
+                            <div class="card w3-border w3-border-black w3-padding-large">
+                              10 am
+                            </div>
+                       </label>
+                    </div>
+                     <div class="col-3">
+                       <label>
+                          <input type="radio"class="timeSlot1" name="timeSlot1" value="11 am" hidden>
+                            <div class="card w3-border w3-border-black w3-padding-large">
+                              11 am
+                            </div>
+                       </label>
+                    </div>
+                     <div class="col-3">
+                       <label>
+                          <input type="radio" class="timeSlot1" name="timeSlot1" value="12 pm" hidden>
+                            <div class="card w3-border w3-border-black w3-padding-large">
+                              12 pm
+                            </div>
+                       </label>
+                    </div>
+                     <div class="col-3">
+                       <label>
+                          <input type="radio" class="timeSlot1" name="timeSlot1" value="1 pm" hidden>
+                            <div class="card w3-border w3-border-black w3-padding-large">
+                              1 pm
+                            </div>
+                       </label>
+                    </div>
+                     <div class="col-3">
+                       <label>
+                          <input type="radio" class="timeSlot1" name="timeSlot1" value="2 pm" hidden>
+                            <div class="card w3-border w3-border-black w3-padding-large">
+                              2 pm
+                            </div>
+                       </label>
+                    </div>
+                     <div class="col-3">
+                       <label>
+                          <input type="radio" class="timeSlot1" name="timeSlot1" value="3 pm" hidden>
+                            <div class="card w3-border w3-border-black w3-padding-large">
+                              3 pm
+                            </div>
+                       </label>
+                    </div>
+                     <div class="col-3">
+                       <label>
+                          <input type="radio" class="timeSlot1" name="timeSlot1" value="4 am" hidden>
+                            <div class="card w3-border w3-border-black w3-padding-large">
+                              4 pm
+                            </div>
+                       </label>
+                    </div>
+                     <div class="col-3">
+                       <label>
+                          <input type="radio" class="timeSlot1" name="timeSlot1" value="5 am" hidden>
+                            <div class="card w3-border w3-border-black w3-padding-large">
+                              5 pm
+                            </div>
+                       </label>
+                    </div>
+                     <div class="col-3">
+                       <label>
+                          <input type="radio" class="timeSlot1" name="timeSlot1" value="6 pm" hidden>
+                            <div class="card w3-border w3-border-black w3-padding-large">
+                              6 pm
+                            </div>
+                       </label>
+                    </div>
+                     <div class="col-3">
+                       <label>
+                          <input type="radio" class="timeSlot1" name="timeSlot1" value="7 pm" hidden>
+                            <div class="card w3-border w3-border-black w3-padding-large">
+                              7 pm
+                            </div>
+                       </label>
+                    </div>
+                     <div class="col-3">
+                       <label>
+                          <input type="radio" class="timeSlot1" name="timeSlot1" value="8 pm" hidden>
+                            <div class="card w3-border w3-border-black w3-padding-large">
+                              8 pm
+                            </div>
+                       </label>
+                    </div>
+                     <div class="col-3">
+                       <label>
+                          <input type="radio" class="timeSlot1" name="timeSlot1" value="9 pm" hidden>
+                            <div class="card w3-border w3-border-black w3-padding-large">
+                              9 pm
+                            </div>
+                       </label>
+                    </div>
+                     <div class="col-3">
+                       <label>
+                          <input type="radio" class="timeSlot1" name="timeSlot1" value="10 pm" hidden>
+                            <div class="card w3-border w3-border-black w3-padding-large">
+                              10 pm
+                            </div>
+                       </label>
+                    </div>
+                  </div>
+                </div>  
+              </div> 
+             </div>
             <!---------6 Register Slide----------- ----->
             <div class="carousel-item">
               <div class="w3-container w3-padding-small " style="font-family: 'Montserrat', sans-serif;">
@@ -311,6 +485,12 @@
       $("#phone").keypress(function(){
          f = 1;
       })
+       $(".timeSlot").click(function(){
+         f = 1;
+      })
+       $(".timeSlot1").click(function(){
+         f = 1;
+      })
 
 
 
@@ -343,6 +523,18 @@
         else{
           console.log("not geo")
         }
+    }
+    function DayTime(){
+        var days = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
+        
+        var date = new Date();
+        console.log(date);
+        document.getElementById("tommorrow").innerHTML = date.getDate();
+        document.getElementById("dateAfter").innerHTML = date.getDate()+1;
+        document.getElementById("dateAfter1").innerHTML = date.getDate()+2;
+        document.getElementById("dayAfter").innerHTML = days[date.getDay()+1];
+        document.getElementById("dayAfter1").innerHTML = days[date.getDay()+2];
+        console.log(days[date.getDay()+2]);
     }
 </script>
  

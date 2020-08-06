@@ -21,8 +21,8 @@ router.post('/geo',(req,res,next)=>{
 // posting trial 
 router.post('/book_trial',(req,res,next)=>{
       /*--------------- Users Login Info------------------*/
-      const {gender,partner,time,name,program,email,password,method,phone} = req.body;
-      if (!gender||!partner||!time||!name||!program||!email||!password||!method ||!phone){
+      const {gender,partner,time,name,program,email,password,method,phone,timeSlot,timeSlot1} = req.body;
+      if (!gender||!partner||!time||!name||!program||!email||!password||!method ||!phone||!timeSlot ||!timeSlot1){
             res.render('trial_package',{error:"true"});
       }else{    
       const newUser = new Student({
@@ -34,7 +34,9 @@ router.post('/book_trial',(req,res,next)=>{
             name,
             email,
             password,
-            phone
+            phone,
+            timeSlot,
+            timeSlot1
       });
       bcrypt.genSalt(10, (err, salt) => {
             bcrypt.hash(newUser.password, salt, (err, hash) => {
