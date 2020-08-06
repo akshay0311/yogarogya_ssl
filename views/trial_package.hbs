@@ -486,11 +486,10 @@
          f = 1;
       })
        $(".timeSlot").click(function(){
+        $(".timeSlot1").click(function(){
          f = 1;
-      })
-       $(".timeSlot1").click(function(){
-         f = 1;
-      })
+      });
+      });
 
 
 
@@ -529,11 +528,11 @@
         
         var date = new Date();
         console.log(date);
-        document.getElementById("tommorrow").innerHTML = date.getDate();
-        document.getElementById("dateAfter").innerHTML = date.getDate()+1;
-        document.getElementById("dateAfter1").innerHTML = date.getDate()+2;
-        document.getElementById("dayAfter").innerHTML = days[date.getDay()+1];
-        document.getElementById("dayAfter1").innerHTML = days[date.getDay()+2];
+        document.getElementById("tommorrow").innerHTML = date.getDate()+1;
+        document.getElementById("dateAfter").innerHTML = date.getDate()+2;
+        document.getElementById("dateAfter1").innerHTML = date.getDate()+3; 
+        document.getElementById("dayAfter").innerHTML = days[(date.getDay()+1)%7];
+        document.getElementById("dayAfter1").innerHTML = days[(date.getDay()+2)%7];
         console.log(days[date.getDay()+2]);
     }
 </script>

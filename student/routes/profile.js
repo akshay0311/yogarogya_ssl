@@ -22,6 +22,7 @@ var upload = multer({ storage: storage });
 
 // Authentication
 var initializePassport = require('../../config/passport');
+const { route } = require('../../instructor/routes');
 initializePassport(passport);
 
 // Register Page
@@ -134,7 +135,7 @@ router.post('/register', (req, res) => {
     });
   }
 });
-
+var addresses = [];
 // get dashboard
 router.get('/dashboard',checkAuthenticated,(req,res)=>{
   var user = req.user;
@@ -150,10 +151,34 @@ router.get('/dashboard',checkAuthenticated,(req,res)=>{
     pincode: user.pincode,
     phone : user.phone,
     pp:user.profile_pic,
-    ct : ct
+    ct : ct,
+    addresses: addresses
   }
   );
 })
+
+
+router.post('/geoloc',(req,res)=>{
+  var user = req.user;
+  Student.findOne({ email: req.body.email }).then(usr => {
+    addresses.push(req.body.address);
+    res.render("dashboard1",{
+      name:user.name,
+      email:user.email,
+      country:user.country,
+      city: user.city,
+      state: user.state,
+      street : user.street,
+      pincode: user.pincode,
+      phone : user.phone,
+      pp:user.profile_pic,
+      addresses: addresses
+    });
+  })
+  .catch(err=>console.log(err))
+})  
+
+
 
 // uploading profile pic
 router.post("/dashboard",upload.single("profile_pic"),(req,res)=>{
@@ -172,6 +197,7 @@ router.post("/dashboard",upload.single("profile_pic"),(req,res)=>{
           pincode: user.pincode,
           phone : user.phone,
           pp:user.profile_pic,
+          addresses:addresses
       }
       ))
       .catch(err=>console.log(err))  

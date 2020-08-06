@@ -37,7 +37,7 @@
                 <div class="w3-container">
                     <!---Profile Pic Display----->
                      <!---Profile Pic Display----->
-                    <p class="w3-center w3-xlarge mt-3"  style="font-family: 'Recursive', sans-serif;">My Profile</p>
+                    <p class="w3-center w3-xlarge mt-3"  style="font-family: 'Montserrat', sans-serif;">My Profile</p>
                     <br>
                         <p class="w3-center"><img src="http://localhost:5000/{{pp}}" class="w3-circle" style="height:110px;width:106px" alt="Avatar"
                          onerror=this.src="http://localhost:5000/avatar.png"></p>
@@ -49,7 +49,7 @@
                          Upload Profile Pic
                         </button>
                         <div class="w3-small dropdown-menu" style="max-width: 120px;">
-                            <form action="/student/dash" method="POST" enctype="multipart/form-data">
+                            <form action="/student/dashboard" method="POST" enctype="multipart/form-data">
                                 <input type="hidden" id="email" name="email" value="{{email}}">
                                 <input type="file" name="profile_pic"><br>   
                                 <button class=" w3-tiny btn btn-info" type="submit">Upload</button>
@@ -81,10 +81,12 @@
           <div class="w3-card w3-round w3-white mt-3 mt-md-0">
               <div class="w3-container">
                     <div class="container pt-4">
-                        <span class=" w3-xlarge" style="font-family: 'Recursive', sans-serif;">Courses Taken</span>
-                        {{#each ct}}
-                            <li>{{this.name}}</li>
-                        {{/each}}
+                        <span class=" w3-xlarge" style="font-family: 'Montserrat', sans-serif;">Courses Taken</span>
+                        <div class="container">
+                                <!--  {{#each ct}}
+                                <li>{{this.name}}</li>
+                            {{/each}}--->
+                        </div>
                     </div>
                     <br>
             </div>
@@ -94,13 +96,13 @@
         <div class="w3-card w3-round w3-white">
               <div class="w3-container">
                     <div class="container pt-4">
-                      <span class=" w3-xlarge" style="font-family: 'Recursive', sans-serif;">Your Progress</span>
+                      <span class=" w3-xlarge" style="font-family: 'Montserrat', sans-serif;">Your Progress</span>
                   </div>
               </div>
               <br>
               <br>
               <div class="container">
-                      {{#each ct}}
+                     <!-- {{#each ct}}
                          <div class="container">
                                 {{this.name}}</span>
                                 <br>
@@ -114,23 +116,49 @@
                          </div>
                         <br>
                         <br>
-                      {{/each}}
+                      {{/each}}-->
               </div>
               <br>
         </div>
         <br>
-        <div class="w3-card w3-round w3-white">
+        <div class="w3-card w3-round w3-white pb-3">
             <div class="container pt-4">
-                   <span class="w3-xlarge" style="font-family: 'Recursive', sans-serif;">Your Current Location</span>
+                   <span class="w3-xlarge" style="font-family: 'Montserrat', sans-serif;">Add your Location</span>
             </div>
             <br>
-            <br>
-             <div class="container w3-center">
-                 <button class="btn btn-info btn-lg">Your current location</button>
-             </div>      
+            <div class="container pl-4">
+                    {{#each addresses}}
+                      <p class="w3-large" style="font-family: 'Roboto Condensed', sans-serif;">Your Location</b>
+                      <p>{{this}}</p>
+                       <br>
+                    {{/each}}
             </div>
-        </div>  
+            <span class="w3-large w3-text-red pl-4"><b>Add your location&nbsp;</b></span><input class="w3-border w3-border-gray" type="checkbox" onclick="getloc()" ng-model="myVar">
+            <div ng-show="myVar">
+              <div class="container w3-round-large">
+                <form action="/student/geoloc" method="POST">
+                  <p id="map"  style="width:100%; height:200px;"></p>
+                   <br>
+                   <input type="text" name="email" value="email" hidden>
+                   <label><b>Your current location</b></label>
+                    <input id="address" name="address" class="w3-border w3-border-gray w3-round-large" type="text" 
+                   placeholder="Add flat/building/street" style="width: 100%; height:35px;"> 
+                   <br>
+                   <br>
+                   <label><b>Add additional info</b></label>     
+                   <input class="w3-border w3-border-gray w3-round-large" type="text" 
+                   placeholder="Add flat/building/street" style="width: 100%; height:35px;">
+                   <br>
+                   <br>
+                  <button type="submit" class="btn btn-info">Submit</button>
+                </form>  
+              </div>
+            </div>
+        </div>
+      </div>  
     </div>
+    
+  </div>  
 
 
     <!--Script For Geotagging------------->
@@ -142,13 +170,51 @@
           navigator.geolocation.getCurrentPosition(function(p){
             var lat = p.coords.latitude;
             var long = p.coords.longitude;
-            map(lat,long);
+            initMap(lat,long);
+            reverseGeocode(lat,long);
           })
         }
       }
-      function map(lat,long){
-   //Fetching  Geocoding Api
-          document.getElementById("map").src="https://maps.locationiq.com/v2/staticmap?key=c75901e187710e&center="+lat+","+long+"&zoom=18";
+      function reverseGeocode(lat,long){
+         fetch(" https://maps.googleapis.com/maps/api/geocode/json?latlng="+lat+","+long+"&key=AIzaSyBqeD1eqrxVLrJDUF3r9rMS-U-leaCiKKw")
+         .then(response=>{
+            return response.json();
+         })
+         .then(json=> format_Address(json.results[0].formatted_address))
+         .catch(err=>console.log(err));
       }
-    </script>  
-          
+      function format_Address(address){
+         console.log(address);
+         document.getElementById("address").value = address;
+      }
+      // For Map
+      function initMap(lat,long){
+      // Map options
+      var options = {
+        zoom:16,
+        center:{lat:lat,lng:long}
+      }
+      // New map
+      var map = new google.maps.Map(document.getElementById('map'), options);
+      // marker on the map
+      var marker = new google.maps.Marker({
+        position:{lat:lat,lng:long},
+        map:map,
+        icon:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
+      });
+      // info window  
+      var infowindow = new google.maps.InfoWindow({
+        content:'<h1>Indira Nagar</h1>'
+      });
+      // listener to clicking event to the marker
+      marker.addListener('click',()=>{
+        infowindow.open(map,marker);
+      });
+    }      
+    </script>
+
+   
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqeD1eqrxVLrJDUF3r9rMS-U-leaCiKKw&callback=initMap">
+    </script>
+      
