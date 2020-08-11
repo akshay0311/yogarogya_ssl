@@ -1,13 +1,13 @@
 <div>
           <nav class="navbar navbar-expand-lg navbar-dark navbar-custom w3-padding-large ">
-          <a class="navbar-brand" href="/"><img src="yogarogya_log.png" width="160px;" height="114px;" alt=""></a>
+          <a class="navbar-brand" href="/"><img src="yogarogya_log.png" alt="" width="100px" height="80px;"></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item active">
-                <a class="nav-link mr-3 w3-text-white" href="/dashboard"><i class="fa fa-home"></i>Dashboard</a>
+                <a class="nav-link ml-5 mr-3 w3-text-white" href="/dashboard"><i class="fa fa-home"></i>Dashboard</a>
               </li>
               <li class="nav-item active">
                 <a class="nav-link mr-3 w3-text-white" href="/users/profile">Profile</a>
@@ -130,6 +130,18 @@
                                 </label>    
                               </div>
                           </div>  
+                          <div class="col-6">
+                             <!-----------------------Pre Natal Card-------------------->
+                              <div class="card mb-3">
+                                <label>
+                                    <input type="radio" name="program" class="program" value="pre natal" hidden>
+                                    <img src="pre.png"  width="100%">
+                                    <div class="card-body w3-medium">
+                                        <b>Pre Natal Programme</b>
+                                    </div>
+                                </label>    
+                              </div>
+                          </div>
                            <div class="col-6">
                              <!-----------------------Post Natal Card-------------------->
                               <div class="card mb-3">
@@ -162,6 +174,18 @@
                                     <img src="meditation.jpg"  width="100%">
                                     <div class="card-body w3-medium">
                                         <b>Relaxation & Meditation Programme</b>
+                                    </div>
+                                </label>    
+                              </div>
+                          </div> 
+                           <div class="col-6">
+                            <!-----------------------Ask Trainer Card-------------------->
+                              <div class="card mb-3">
+                                <label>
+                                    <input type="radio" name="program" class="program" value="ask trainer" hidden>
+                                    <img src="trainer.png"  width="100%">
+                                    <div class="card-body w3-medium">
+                                        <b>Ask the trainer</b>
                                     </div>
                                 </label>    
                               </div>
@@ -224,27 +248,27 @@
                        <div class="col-4">
                               <label>
                                 <input type="radio" class="timeSlot" name="timeSlot" hidden>
-                                <div class="card w3-border w3-border-black w3-padding-large">
-                                  <p class="w3-small  w3-text-black">Tomorrow</p>
-                                  <p class="w3-large w3-text-black" id="tommorrow"></p>
+                                <div class="card w3-border w3-border-black w3-padding-small" style="width: 97px;">
+                                  <p class="w3-small w3-text-black">Tomorrow</p>
+                                  <p class="w3-medium w3-text-black" id="tommorrow"></p>
                                 </div>
                               </label>
                        </div>
                           <div class="col-4 ">
                             <label>
                                 <input type="radio" class="timeSlot" name="timeSlot" hidden>
-                                <div class="card w3-border w3-border-black w3-padding-large">
+                                <div class="card w3-border w3-border-black w3-padding-small" style="width: 95px;">
                                     <p class="w3-small w3-text-black" id="dayAfter"></p>
-                                     <p class="w3-large w3-text-black" id="dateAfter"></p>
+                                     <p class="w3-medium w3-text-black" id="dateAfter"></p>
                                 </div>
                             </label>
                           </div>
                           <div class="col-4">
                             <label>
                                  <input type="radio"  class="timeSlot" name="timeSlot" hidden>
-                                <div class="card w3-border w3-border-black w3-padding-large">
+                                <div class="card w3-border w3-border-black w3-padding-small" style="width: 95px;">
                                   <p class="w3-small w3-text-black" id="dayAfter1"></p>
-                                  <p class="w3-large w3-text-black" id="dateAfter1"></p>
+                                  <p class="w3-medium w3-text-black" id="dateAfter1"></p>
                                 </div>
                             </label>
                        </div>
@@ -432,10 +456,9 @@
               <br>
             <div style="overflow:auto;">
               <div style="float:center;">
-                <button class="btn btn-dark btn-block" type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+                <button class="btn btn-dark btn-block" type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
                 <br>
-                <br>
-                <button  class="btn btn-dark btn-block" type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+                <button  class="btn btn-dark btn-block" type="button" id="prevBtn" onclick="nextPrev(-1)">Prev</button>
               </div>
             </div>                  
       </form>
