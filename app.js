@@ -75,9 +75,11 @@ app.use('/users', require('./instructor/routes/users.js'));
 //Routes for students
 app.use('/student', require('./student/routes/profile'));
 
-//Routes for packages
-app.use('/package', require('./student/routes/package'));
+//Routes for package trial
+app.use('/trial_package', require('./student/routes/trial_package'));
 
+//Routes for package trial
+//app.use('/book_package', require('./student/routes/book_package'));
 
 
 const PORT = process.env.PORT || 5004;

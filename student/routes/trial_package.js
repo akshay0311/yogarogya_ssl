@@ -15,16 +15,18 @@ initializePassport(passport);
 router.get('/',(req,res,next)=>{
       res.render('trial_package')    
 })
-router.post('/geo',(req,res,next)=>{
-      res.redirect('/package');
-})
+
+
+
+
+
+
+
 // posting trial 
 router.post('/book_trial',(req,res,next)=>{
+      console.log("t");
       /*--------------- Users Login Info------------------*/
       const {gender,partner,time,name,program,email,password,method,phone,timeSlot,timeSlot1} = req.body;
-      if (!gender||!partner||!time||!name||!program||!email||!password||!method ||!phone||!timeSlot ||!timeSlot1){
-            res.render('trial_package',{error:"true"});
-      }else{    
       const newUser = new Student({
             gender,
             partner,
@@ -48,7 +50,6 @@ router.post('/book_trial',(req,res,next)=>{
             })
             .catch(err => console.log(err));
       })
-      })
-}           
+      })           
 })
 module.exports = router;

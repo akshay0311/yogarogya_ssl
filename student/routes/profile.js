@@ -157,7 +157,7 @@ router.get('/dashboard',checkAuthenticated,(req,res)=>{
   );
 })
 
-
+// post route for storing  customers coordinates
 router.post('/geoloc',(req,res)=>{
   var user = req.user;
   Student.findOne({ email: req.body.email }).then(usr => {
