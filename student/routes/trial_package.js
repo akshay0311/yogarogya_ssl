@@ -13,43 +13,83 @@ initializePassport(passport);
 
 // select your categories
 router.get('/',(req,res,next)=>{
-      res.render('trial_package')    
+      res.render('trial_package',{
+      timeSlots:['5 am','6 am','7 am','8 am','9 am','10 am','11 am','12 pm','1 pm','2 pm','3 pm','4 pm','5 pm','6 pm',
+            '7 pm','8 pm','9 pm','10 pm']
+       })    
 })
 
 
-
-
-
-
-
+var e;
 // posting trial 
 router.post('/book_trial',(req,res,next)=>{
-      console.log("t");
       /*--------------- Users Login Info------------------*/
-      const {gender,partner,time,name,program,email,password,method,phone,timeSlot,timeSlot1} = req.body;
-      const newUser = new Student({
-            gender,
-            partner,
-            time,
-            program,
-            method,
-            name,
-            email,
-            password,
-            phone,
-            timeSlot,
-            timeSlot1
-      });
-      bcrypt.genSalt(10, (err, salt) => {
-            bcrypt.hash(newUser.password, salt, (err, hash) => {
-              if (err) throw err;
-              newUser.password = hash;
-              newUser
-                .save()
-                .then(user => { console.log(newUser);res.redirect('/student/dashboard');
-            })
-            .catch(err => console.log(err));
-      })
-      })           
-})
+      const {name,email,password,phone} = req.body;
+      if (name && email && password && phone){
+            e = email;
+            const newUser = new Student({
+                  name,
+                  email,
+                  password,
+                  phone
+            });
+            bcrypt.genSalt(10, (err, salt) => {
+                  bcrypt.hash(newUser.password, salt, (err, hash) => {
+                  if (err) throw err;
+                  newUser.password = hash;
+                  newUser
+                        .save()
+                        .then(user =>{console.log("ok");res.redirect('/student/login')})
+                        .catch(err => console.log(err));
+                        }) 
+                  })   
+      }
+      else {
+            // for online or in-person
+            if (req.body.d == 'online' || req.body.d == 'person'){
+                Student.findOne({email:e}).then(user=>{
+                  user.method = req.body.d;
+                  user.save().then(usr=>console.log(usr));
+                })        
+            }
+            // for gender
+            else if (req.body.d == 'male' || req.body.d == 'female'){
+                  Student.findOne({email:e}).then(user=>{
+                    user.gender = req.body.d;
+                    user.save().then(usr=>console.log(usr));
+                  })        
+              }
+              // for partner
+            else if (req.body.d == 'single' || req.body.d == 'couple' || req.body.d == 'group' ){
+                  Student.findOne({email:e}).then(user=>{
+                    user.partner = req.body.d;
+                    user.save().then(usr=>console.log(usr));
+                  })        
+              }
+              // for num of times in a week
+            else if (req.body.d == 'daily' || req.body.d == 'three' || req.body.d == 'trainer' ){
+                  Student.findOne({email:e}).then(user=>{
+                    user.time = req.body.d;
+                    user.save().then(usr=>console.log(usr));
+                  })        
+              }
+              // for program
+            else if (req.body.d == 'weight loss'||req.body.d == 'immunity booster' || req.body.d == 'post natal'|| 
+                  req.body.d == 'diabetes control'||req.body.d == 'spine strenghthening' || req.body.d == 'pre natal'
+                  ||req.body.d == 'pink'||req.body.d == 'relaxation meditation'||req.body.d == 'ask trainer'){
+                        Student.findOne({email:e}).then(user=>{
+                        user.program = req.body.d;
+                        user.save().then(usr=>console.log(usr));
+                        })        
+                  }            
+            else{
+                  Student.findOne({email:e}).then(user=>{
+                    user.timeSlot = req.body.d1;
+                    user.timeSlot1 = req.body.d2;
+                    user.save().then(usr=>{console.log(usr);res.redirect('/student/login'); 
+                  });
+                  })        
+              }
+            }
+      })            
 module.exports = router;

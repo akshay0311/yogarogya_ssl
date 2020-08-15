@@ -40,7 +40,7 @@ app.set('view engine', '.hbs');
 // static folder
 app.use(express.static(path.join(__dirname, 'uploads')));
 
-
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 // Express session
@@ -79,7 +79,7 @@ app.use('/student', require('./student/routes/profile'));
 app.use('/trial_package', require('./student/routes/trial_package'));
 
 //Routes for package trial
-//app.use('/book_package', require('./student/routes/book_package'));
+app.use('/book_package', require('./student/routes/book_package'));
 
 
 const PORT = process.env.PORT || 5004;

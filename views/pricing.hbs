@@ -1,0 +1,87 @@
+<div>
+          <nav class="navbar navbar-expand-lg navbar-dark navbar-custom w3-padding-large ">
+          <a class="navbar-brand" href="/"><img src="http://localhost:5004/yogarogya_log.png" alt=""></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item active">
+                <a class="nav-link ml-5 mr-3 w3-text-white" href="/dashboard"><i class="fa fa-home"></i>Dashboard</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link mr-3 w3-text-white" href="/users/profile">Profile</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link mr-3 w3-text-white" href="/users/testimonials">Testimonials</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link mr-3 w3-text-white" href="/users/kyc">KYC</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link mr-3  w3-text-white" href="/users/logout">Logout</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+    </div>
+
+    <br>
+
+    <!---------------Body----------------->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 w3-center">
+              <span class="w3-tag w3-blue w3-padding w3-round-large" style="width: 280px;">Single</span>
+              <br>
+              <br>
+              <!--------------Cards for single sessions------------>
+              {{#each single}}
+              <input type="radio" class="pricing" name="pricing" hidden>
+              <div class="card w3-border w3-border-black w3-round-large">
+                  <div class="w3-container  pb-5 pl-5 pr-5 pt-4 w3-left-align">
+                        <h5>{{sessions}} sessions membership</h5>
+                        <br>
+                        <p><b>Validity: {{validity}} days</b></p>
+                        <h1>Rs. {{this.price}}</h1>
+                  </div>                
+              </div>
+              <br>
+              {{/each}}
+            </div>
+              <div class="col-md-4 w3-center">
+              <span class="w3-tag w3-blue w3-padding w3-round-large" style="width: 280px;">Couple</span>
+              <br>
+              <br>
+              <!------------Cards for couple session------------------>
+              {{#each couple}}
+                <div class="card w3-border w3-border-black w3-round-large">
+                    <div class="w3-container  pb-5 pl-5 pr-5 pt-4 w3-left-align">
+                      <h5>{{this.sessions}} sessions membership</h5>
+                      <br>
+                      <p><b>Validity:{{this.validity}} days</b></p>
+                      <h1>Rs.{{this.price}}</h1>
+                    </div>             
+                </div>
+              <br>
+              {{/each}}
+            </div>
+              <div class="col-md-4 w3-center">
+              <span class="w3-tag w3-blue w3-padding w3-round-large" style="width: 280px;">Group</span>
+              <br>
+              <br>
+              <!---------------------Cards for group session-------------------> 
+              {{#each group}} 
+                <div class="card w3-border w3-border-black w3-round-large">
+                  <div class="w3-container  pb-5 pl-5 pr-5 pt-4 w3-left-align">
+                    <h5>{{this.sessions}} sessions membership</h5>
+                    <br>
+                    <p><b>Validity: {{this.validity}} days</b></p>
+                    <h1>Rs.{{this.price}}</h1>
+                  </div>               
+              </div>
+              <br>
+              {{/each}}
+            </div>
+        </div>
+    </div>

@@ -1,24 +1,25 @@
 <div>
-          <nav class="navbar navbar-expand-lg navbar-dark navbar-custom w3-padding-large">
-          <a class="navbar-brand" href="/"><p class="w3-text-black w3-xlarge pr-3 pt-2" style="font-family: 'Noto Sans JP', sans-serif;">YOGAROGYA</p></a>
+          <nav class="navbar navbar-expand-lg navbar-dark navbar-custom w3-padding-large fixed-top">
+          <a class="navbar-brand" href="/"><img src="http://localhost:5004/yogarogya_log.png" alt="" width="88px;"></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item active">
-                <a class="nav-link mr-3 w3-text-black" href="/student/dashboard"><i class="fa fa-home"></i>Dashboard<span class="sr-only">(current)</span></a>
-              </li>
+                <a class="nav-link w3-medium mr-3" href="/dashboard"><i class="fa fa-home"></i>Dashboard</a>
+              </li>  
               <li class="nav-item active">
-                <a class="nav-link mr-3 w3-text-black" href="#">Packages</a>
-              </li>
-               <li class="nav-item active">
-                <a class="nav-link mr-3 w3-text-black" href="/student/logout">Logout</a>
+                <a class="nav-link w3-medium mr-3"  href="/users/logout">Logout</a>
               </li>
             </ul>
           </div>
         </nav>
     </div>
+    <br>
+    <br>
+    <br>
+    <br>
 
 <!-------------------------Page------------>
 <br>
@@ -199,18 +200,8 @@
       // marker on the map
       var marker = new google.maps.Marker({
         position:{lat:lat,lng:long},
-        map:map,
-        icon:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
-      });
-      // info window  
-      var infowindow = new google.maps.InfoWindow({
-        content:'<h1>Indira Nagar</h1>'
-      });
-      // listener to clicking event to the marker
-      marker.addListener('click',()=>{
-        infowindow.open(map,marker);
-      });
-    }      
+        map:map
+      });   
     </script>
 
    

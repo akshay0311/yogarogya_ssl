@@ -4,9 +4,9 @@ const mongoose = require('mongoose');
 
 //Student Bio & Session
 var studentSchema = mongoose.Schema({
-    name : {type:String,required:true},
-    email : {type:String,required:true},
-    password : {type:String,required:true},
+    name : {type:String},
+    email : {type:String},
+    password : {type:String},
     country : String,
     state : String,
     city : String,
