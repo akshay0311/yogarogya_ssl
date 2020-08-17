@@ -1,0 +1,132 @@
+<!---------NavBar-------------------------------->
+<nav class="navbar navbar-expand-lg navbar-dark navbar-custom1 w3-padding-large">
+    <a class="navbar-brand" href="/"><img src="http://localhost:5005/yogarogya_log.png" alt=""></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+</nav>
+<!---------------Pricing Page-------------->
+<br>
+<div class="container">
+    <div class="row gy-3">
+        <div class="col-4">
+            <button id="b1" class="btn btn-dark btn-block" rel="popover">Single</button>
+        </div>
+        <div class="col-4">
+            <button id="b2" class="btn btn-dark btn-block" rel="popover">Couple</button>
+        </div>
+        <div class="col-4">
+            <button id="b3" class="btn btn-dark btn-block" rel="popover">Group</button>
+        </div>
+    </div>
+</div>    
+<br>
+<!------------------Pricing Section---------------------------->
+<div class="myDiv">
+    <div class="container">
+        <h2 class="w3-center">Single Pricing</h2>
+        <br>
+        <div class="row">
+             {{#each single}}
+            <div class="col-md-4">
+                <div class="card w3-round-large w3-border w3-border-dark-grey mb-2">
+                    <div class="card-body">
+                        <b class="w3-medium">Sessions:<b class="w3-large">&nbsp;{{this.sessions}}</b></b><br><br>
+                        <b>Validity:<b>&nbsp;{{this.validity}}</b></b><br><br>
+                        <b class="w3-large">Rs.<b class="w3-xxlarge">&nbsp;{{this.price}}</b></b><br><br>
+                        <!----Book Now Section-------->
+                        <form action="/book_package/pay" method="POST">
+                            <input type="text" name ="participants" value="single" hidden/>
+                            <input type="text" name ="mode" value="{{this.mode}}" hidden/>
+                            <input type="text" name ="sessions" value="{{this.sessions}}" hidden/>
+                            <button type="submit" class="btn btn-info w3-round-xxlarge">Buy Now!</button>
+                        </form>  
+                    </div>      
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div><!----------Container  Closed---------->
+</div><!------myDiv Closed----------->
+<!---------------------Online Couple Pricing------------------>
+<div class="myDiv">
+    <div class="container"> 
+        <h2 class="w3-center">Couple Pricing</h2>
+        <br>
+        <div class="row">
+             {{#each couple}}
+            <div class="col-md-4">
+                <div class="card w3-round-large w3-border w3-border-dark-grey mb-2">
+                    <div class="card-body">
+                        <b class="w3-medium">Sessions:<b class="w3-large">&nbsp;{{this.sessions}}</b></b><br><br>
+                        <b>Validity:<b>&nbsp;{{this.validity}}</b></b><br><br>
+                        <b class="w3-large">Rs.<b class="w3-xxlarge">&nbsp;{{this.price}}</b></b><br><br>
+                        <!----Book Now Section-------->
+                        <form action="/book_package/pay" method="POST">
+                            <input type="text" name ="participants" value="couple" hidden/>
+                            <input type="text" name ="mode" value="{{this.mode}}" hidden/>
+                            <input type="text" name ="sessions" value="{{this.sessions}}" hidden/>
+                            <button type="submit" class="btn btn-info w3-round-xxlarge">Buy Now!</button>
+                        </form>
+                    </div>       
+                </div>
+            </div>
+            {{/each}} 
+        </div>
+    </div><!---Container Closed--------->
+</div> <!---myDiv Closed------------>    
+<div class="myDiv">
+    <div class="container"> 
+        <h2 class="w3-center">Group Pricing</h2>
+        <br>
+        <div class="row">
+            {{#each group}}
+            <div class="col-md-4">
+                <div class="card w3-round-large w3-border w3-border-dark-grey mb-2">
+                    <div class="card-body">
+                        <b class="w3-medium">Sessions:<b class="w3-large">&nbsp;{{this.sessions}}</b></b><br><br>
+                        <b>Validity:<b>&nbsp;{{this.validity}}</b></b><br><br>
+                        <b class="w3-large">Rs.<b class="w3-xxlarge">&nbsp;{{this.price}}</b></b><br><br>
+                        <!----Book Now Section-------->
+                        <form action="/book_package/pay" method="POST">
+                            <input type="text" name ="participants" value="group" hidden/>
+                            <input type="text" name ="mode" value="{{this.mode}}" hidden/>
+                            <input type="text" name ="sessions" value="{{this.sessions}}" hidden/>
+                            <button type="submit" class="btn btn-info w3-round-xxlarge">Buy Now!</button>
+                        </form>
+                    </div>       
+                </div>
+            </div>
+            {{/each}} 
+        </div>
+    </div><!---Container Closed--------->
+</div> <!---myDiv Closed------------>   
+<script>
+    $(document).ready(function(){
+            var x = document.getElementsByClassName("myDiv");
+            // click on single button   
+            if ("{{p}}" == 'single') {
+            x[0].style.display = 'block';x[1].style.display = 'none'; x[2].style.display = 'none';}
+            else if("{{p}}" == 'couple'){
+             x[0].style.display = 'none';x[1].style.display = 'couple'; x[2].style.display = 'none';}   
+            else{
+                x[0].style.display = 'none';x[1].style.display = 'none'; x[2].style.display = 'block';}
+
+            $("#b1").click(()=>{
+                x[0].style.display = 'block';
+                x[1].style.display = 'none';
+                x[2].style.display = 'none';  
+            })
+            $("#b2").click(()=>{
+                x[0].style.display = 'none';
+                x[1].style.display = 'block';
+                x[2].style.display = 'none';  
+            })
+            $("#b3").click(()=>{
+                x[0].style.display = 'none';
+                x[1].style.display = 'none';
+                x[2].style.display = 'block';  
+            })            
+        })
+</script>
+        

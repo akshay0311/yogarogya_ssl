@@ -62,7 +62,7 @@ router.post('/book_trial',(req,res,next)=>{
               // for partner
             else if (req.body.d == 'single' || req.body.d == 'couple' || req.body.d == 'group' ){
                   Student.findOne({email:e}).then(user=>{
-                    user.partner = req.body.d;
+                    user.partcipants = req.body.d;
                     user.save().then(usr=>console.log(usr));
                   })        
               }

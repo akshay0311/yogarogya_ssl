@@ -1,337 +1,52 @@
+<!---Nav-Bar----->
 <div>
-          <nav class="navbar navbar-expand-lg navbar-dark navbar-custom w3-padding-large">
-          <a class="navbar-brand" href="/"><img src="yogarogya_log.png" alt="" width="85px;"></a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item active">
-                <a class="nav-link w3-medium ml-5 mr-3 w3-text-white" href="/dashboard"><i class="fa fa-home"></i>Dashboard</a>
-              </li>
-              <li class="nav-item active">
-                <a class="nav-link w3-medium mr-3 w3-text-white" href="/users/profile">Profile</a>
-              </li>
-              <li class="nav-item active">
-                <a class="nav-link w3-medium mr-3 w3-text-white" href="/users/testimonials">Testimonials</a>
-              </li>
-              <li class="nav-item active">
-                <a class="nav-link w3-medium mr-3 w3-text-white" href="/users/kyc">KYC</a>
-              </li>
-              <li class="nav-item active">
-                <a class="nav-link w3-medium mr-3  w3-text-white" href="/users/logout">Logout</a>
-              </li>
-            </ul>
-          </div>
-        </nav>
-    </div>
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom w3-padding-large">
+    <a class="navbar-brand" href="/"><img src="yogarogya_log.png" alt="" width="85px;"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </nav>
+</div>
 <!---------------------------------Main Page-------------------------------------->
   <!-----Modal Button on top of Image------->
-  <div class="container-fluid" style="background-color: #f7605e;">   
-    <div class="row">
-      <div class="col-lg-12">
-          <img src="img/hero-slider/1.png">
-    <button type="button" class="btn btn-primary btn-xlg" data-toggle="modal" data-target="#myModal">
-      <b>Book Trial Package</b>
-    </button>
+    <div class="container-fluid" style="background-color: #f7605e;">   
+      <div class="row">
+        <div class="col-lg-12">
+            <img src="img/hero-slider/1.png">
+      <button type="button" class="btn btn-primary btn-xlg" data-toggle="modal" data-target="#myModal">
+        <b>Book Trial Package</b>
+      </button>
+        </div>
       </div>
     </div>
-  </div>
-
-    <!---Everything Inside Modal----->
+    <!--------------------Everything Inside Modal---------------------->
     <div class="modal fade" id="myModal">
-      <div class="modal-dialog modal-xlg" style="width:100%;height:1200px !important;">
-      <div class="modal-content" style="height: 100%;">
-        <!------------------------Form---------------------------->
-        <!--Form is filled with slides-------------------->
-        <form  id="regForm" action="/student/login" method = "POST">
-        <!----------------------1) Register Slide------------------>
-            <div class="tab">
-                 <p class="w3-xlarge w3-text-black w3-panel w3-light-gray"><b>Submit your info</b></p>
-                 <br>
-                  <div class="w3-container w3-border w3-border-dark-gray w3-round-large w3-padding-large w3-left-align m-2">
-                    <div class="form-group">
-                      <label for="name" class="w3-small"><b>Name:</b></label>
-                      <input  type="name" id="name"  name="name"  class="form-control" placeholder="Enter Name"/>
-                    </div>
-                    <div class="form-group">
-                      <label for="email" class="w3-small"><b>Email:</b></label>
-                      <input  type="email" id="email"  name="email"  class="form-control" placeholder="Enter Email"/>
-                    </div>
-                    <div class="form-group">
-                      <label for="password" class="w3-small"><b>Password:</b></label>
-                      <input  type="password" id="password"  name="password"  class="form-control" placeholder="Enter Password"/>
-                    </div>
-                    <div class="form-group">
-                      <label for="phone" class="w3-small"><b>Phone:</b></label>
-                      <input  type="text" id="phone"  name="phone"  class="form-control" placeholder="Enter Phone Number"/>
-                    </div>
-                    <br>
-                  </div>  
-              </div>
-           <!----2 Choose your method tab------->
-                <div class="tab">
-                    <p class="w3-xlarge w3-text-black w3-panel w3-light-gray" ><b>Select Between</b></p>
-                       <br>
-                       <div class="w3-container  w3-border-bottom  w3-left-align">  
-                          <input type="radio" class="method" id="online" name="method" value="online">
-                          <label class="w3-medium" for="online"><b>&nbsp;Online</b></label><br>
-                        </div>
-                        <br>
-                        <br>
-                        <div class="w3-container  w3-border-bottom w3-left-align">
-                          <input type="radio" class="method" id="person" name="method" value="person">
-                          <label class="w3-medium" for="person"><b>&nbsp;In person</b></label><br>
-                        </div>
-                </div>      
-
-
-             <!--3 Gender Input tab----->
-            <div class="tab">
-                  <p class="w3-xlarge w3-text-black w3-panel w3-light-gray"><b>What is your gender?</b></p>
+      <div class="modal-dialog modal-xlg" style="max-width:800px;height:1200px !important;">
+        <div class="modal-content" style="height: 100%;">
+          <!------------------------Form---------------------------->
+          <!--Form is filled with slides-------------------->
+          <form  id="regForm" action="/student/login" method = "POST">
+              <!----------------------1) Register Slide------------------>
+              {{>trial_packages_tabs/register_tab}}
+            <!----2 Choose your mode tab------->
+              {{>trial_packages_tabs/mode_tab}}    
+              <!--3 Gender Input tab----->
+              {{>trial_packages_tabs/gender_tab}}
+              <!-----------------------------------4 Program tab----------------------->
+              {{>trial_packages_tabs/program_tab}}
+              <!---------------5 Pick time slot---------------------->
+              {{>trial_packages_tabs/timeSlot_tab}}
+              <div style="overflow:auto;">
+                <div style="float:center;">
+                  <button class="btn btn-dark btn-block" type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
                   <br>
-                  <div class="w3-container  w3-left-align w3-border-bottom">
-                      <input type="radio" id="male" class="gender" name="gender" value="male">
-                      <label class="w3-medium" for="male"><b>&nbsp;Male</b></label><br>
-                  </div>
-                  <br>
-                  <div class="w3-container w3-left-align w3-border-bottom w3-panel">
-                      <input type="radio" id="female" class="gender" name="gender" value="female">
-                      <label class="w3-medium" for="female"><b>&nbsp;Female</b></label><br>
-                  </div>
-              </div>
-            <!-----------------------------------4 Program tab----------------------->
-                <div class="tab">
-                     <p class="w3-xlarge w3-text-black w3-panel w3-light-gray"><b>Choose your program</b></p>
-                    <br>
-                      <div class="container">
-                       <div class="row">
-                          <div class="col-6">
-                            <!-----------------------Weight Loss Card-------------------->
-                            <div class="card mb-3">
-                                <label>
-                                  <input type="radio" name="program" class="program" value="weight loss" hidden>
-                                  <img src="obesity.png" width="100%">
-                                  <div class="card-body w3-medium">
-                                    <b>Weight Loss Programme</b>
-                                  </div>
-                                </label>  
-                            </div>
-                          </div>
-                          <div class="col-6">
-                            <!-----------------------Diabetes Control Card-------------------->
-                              <div class="card mb-3">
-                                  <label>
-                                    <input type="radio" name="program" class="program" value="diabetes control" hidden>
-                                          <img src="diabetes.png" width="100%">
-                                    <div class="card-body w3-medium">
-                                        <b>Diabetes Control Programme</b>
-                                    </div>
-                                  </label>  
-                              </div>
-                          </div>  
-                          <div class="col-6">
-                            <!-----------------------Immuntiy Card-------------------->
-                              <div class="card mb-3">
-                                <label>
-                                    <input type="radio" name="program" class="program" value="immunity booster" hidden>
-                                    <img src="immunity.png" width="100%">
-                                    <div class="card-body w3-medium">
-                                      <b>Immunity Booster Programme</b>
-                                    </div>
-                                </label>    
-                              </div>
-                          </div>  
-                          <div class="col-6">
-                            <!-----------------------Spine Strengthen Card-------------------->
-                              <div class="card mb-3">
-                                <label>
-                                    <input type="radio" name="program" class="program" value="spine strengthening" hidden>
-                                    <img src="spine.png"  width="100%">
-                                    <div class="card-body w3-medium">
-                                         <b>Spine Strengthen Programme</b>
-                                    </div>
-                                </label>    
-                              </div>
-                          </div>  
-                          <div class="col-6">
-                             <!-----------------------Pre Natal Card-------------------->
-                              <div class="card mb-3">
-                                <label>
-                                    <input type="radio" name="program" class="program" value="pre natal" hidden>
-                                    <img src="pre.png"  width="100%">
-                                    <div class="card-body w3-medium">
-                                        <b>Pre Natal Programme</b>
-                                    </div>
-                                </label>    
-                              </div>
-                          </div>
-                           <div class="col-6">
-                             <!-----------------------Post Natal Card-------------------->
-                              <div class="card mb-3">
-                                <label>
-                                    <input type="radio" name="program" class="program" value="post natal" hidden>
-                                    <img src="post.png"  width="100%">
-                                    <div class="card-body w3-medium">
-                                        <b>Post Natal Programme</b>
-                                    </div>
-                                </label>    
-                              </div>
-                          </div>  
-                           <div class="col-6">
-                             <!-----------------------Pink Card-------------------->
-                              <div class="card mb-3">
-                                <label>
-                                    <input type="radio" name="program" class="program" value="pink" hidden>
-                                    <img src="pink.png"  width="100%">
-                                    <div class="card-body w3-medium">
-                                        <b>Pink Programme</b>
-                                    </div>
-                                </label>    
-                              </div>
-                          </div> 
-                          <div class="col-6">
-                            <!-----------------------Meditation Card-------------------->
-                              <div class="card mb-3">
-                                <label>
-                                    <input type="radio" name="program" class="program" value="relaxation meditation" hidden>
-                                    <img src="meditation.jpg"  width="100%">
-                                    <div class="card-body w3-medium">
-                                        <b>Relaxation & Meditation Programme</b>
-                                    </div>
-                                </label>    
-                              </div>
-                          </div> 
-                           <div class="col-6">
-                            <!-----------------------Ask Trainer Card-------------------->
-                              <div class="card mb-3">
-                                <label>
-                                    <input type="radio" name="program" class="program" value="ask trainer" hidden>
-                                    <img src="trainer.png"  width="100%">
-                                    <div class="card-body w3-medium">
-                                        <b>Ask the trainer</b>
-                                    </div>
-                                </label>    
-                              </div>
-                          </div> 
-                        </div>     
-                      </div> 
-                </div>              
-          <!--------------------5  Choose your partner---------> 
-            <div class="tab">
-                <p class="w3-xlarge w3-text-black w3-panel w3-light-gray"><b>Choose your partner</b></p>
-                <br>
-                <div class="w3-container  w3-left-align w3-border-bottom">
-                    <input type="radio" id="single" name="partner" class="partner" value="single">
-                      <label for='single'><b>&nbsp;Single</b></label>
+                  <button  class="btn btn-dark btn-block" type="button" id="prevBtn" onclick="nextPrev(-1)">Prev</button>
                 </div>
-                <br>
-                <br>
-                <div class="w3-container w3-left-align w3-border-bottom">
-                     <input type="radio" id="couple" name="partner" class="partner" value="couple">
-                    <label for ='couple'><b>&nbsp;Couple</b></label>
-                </div>
-                <br>
-                <br>
-                <div class="w3-container w3-left-align w3-border-bottom">
-                    <input type="radio" id="group" name="partner" class="partner" value="group">
-                    <label for ='group'><b>&nbsp;Group</b></label>  
-                </div>                  
-              </div>                    
-            <!----------------6 Time Slide ------------------------->
-            <div class="tab">
-              <p class="w3-xlarge w3-text-black w3-panel w3-light-gray"><b>How often do you want to workout?</b></p>
-              <br>
-              <div class="w3-container  w3-left-align w3-border-bottom">
-                  <input type="radio" id="daily" class="time" name="time" value="daily">
-                  <label class="w3-medium" for="daily"><b>&nbsp;Daily</b></label><br>
-              </div>
-              <br>
-              <br>
-              <div class="w3-container w3-left-align w3-border-bottom w3-panel">
-                  <input type="radio" id="three" class="time" name="time" value="three">
-                  <label class="w3-medium" for="three"><b>Three times a week</b></label><br>
-              </div>
-              <br>
-              <div class="w3-container w3-left-align w3-border-bottom w3-panel">
-                  <input type="radio" id="trainer" class="time" name="time" value="trainer">
-                  <label class="w3-medium" for="trainer"><b>&nbsp;Ask your trainer</b></label><br>
-              </div>
-            </div>
-            <!---------------7 Pick time slot---------------------->
-             <div class="tab">
-                <input type="text" name="last" value="last" hidden>
-                <div class="w3-container w3-padding-small " style="font-family: 'Montserrat', sans-serif;">
-                 <p class="w3-xlarge w3-text-black w3-panel w3-light-gray"><b>Pick up your time slot</b></p>
-                 <br>
-                 <br>
-                 <!----Day row--------->
-                 <p>When would you like your first session?</p>
-                <br>
-                <div class="container w3-border w3-border-dark-gray w3-padding w3-light-gray w3-round-xlarge" style="width: 100%;">
-                    <div class="row">
-                       <div class="col-4">
-                              <label>
-                                <input type="radio" class="timeSlot" name="timeSlot" value="tomorrow" hidden>
-                                <div class="card w3-border w3-border-black w3-padding-small" style="width: 97px;">
-                                  <p class="w3-small w3-text-black">Tomorrow</p>
-                                  <p class="w3-medium w3-text-black" id="tommorrow"></p>
-                                </div>
-                              </label>
-                       </div>
-                          <div class="col-4 ">
-                            <label>
-                                <input type="radio" class="timeSlot" name="timeSlot" value="Day After Tomorrow" hidden>
-                                <div class="card w3-border w3-border-black w3-padding-small" style="width: 95px;">
-                                    <p class="w3-small w3-text-black" id="dayAfter"></p>
-                                     <p class="w3-medium w3-text-black" id="dateAfter"></p>
-                                </div>
-                            </label>
-                          </div>
-                          <div class="col-4">
-                            <label>
-                                 <input type="radio"  class="timeSlot" name="timeSlot" value="3rd day from today"  hidden>
-                                <div class="card w3-border w3-border-black w3-padding-small" style="width: 95px;">
-                                  <p class="w3-small w3-text-black" id="dayAfter1"></p>
-                                  <p class="w3-medium w3-text-black" id="dateAfter1"></p>
-                                </div>
-                            </label>
-                       </div>
-                    </div>
-                </div>
-                <br>
-                <br>
-                <!----------------------------Time Row------------------ ----->
-                <p>Pick up your time</p>
-                <div class="container-fluid w3-border-top w3-border-bottom w3-padding w3-border-left w3-border-dark-gray w3-light-gray w3-round-xlarge">
-              <div class="row">
-                 {{#each timeSlots}}
-                   <div class="col-3 ">
-                       <label>
-                          <input type="radio" class="timeSlot1" name="timeSlot1" value="{{this}}" hidden>
-                            <div class="card w3-border  w3-border-black w3-padding-large" >
-                              {{this}}
-                            </div>
-                       </label>
-                    </div>
-                  {{/each}}  
-                  </div>
-                </div>  
-              </div> 
-             </div>
-              <br>
-              <br>
-            <div style="overflow:auto;">
-              <div style="float:center;">
-                <button class="btn btn-dark btn-block" type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
-                <br>
-                <button  class="btn btn-dark btn-block" type="button" id="prevBtn" onclick="nextPrev(-1)">Prev</button>
-              </div>
-            </div>                  
-      </form>
+              </div>                  
+          </form>
+        </div>
+      </div>    
     </div>
-  </div>    
-</div>
 
 
 

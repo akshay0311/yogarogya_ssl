@@ -30,117 +30,22 @@ integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="ano
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@1,700&display=swap" rel="stylesheet">
 <!-- Main Stylesheets home page -->
 <link rel="stylesheet" href="css/style.css"/>
-    <title>Yogarogya</title>
-
-    <style>
-          .wrapper {
-            max-height:350px;
-            border: 1px solid #ddd;
-            display: flex;
-            overflow:auto;
-        }
-        .wrapper::-webkit-scrollbar{
-            width:0;
-        } 
-        .navbar-custom { 
-    background-color: #f7605e; 
-}
+<link rel="stylesheet" href="css/mystyle.css">
+<style>
+    .navbar-custom1 { 
+      background-color: #f7605e;  
+    }
 .navbar-brand {
-  padding: 0px; /* firefox bug fix */
+padding: 0px; /* firefox bug fix */
 }
 .navbar-brand>img {
-  width: 100px;
-  max-height: 75px;
+width: 90px;
+max-height: 70px;
 }
-    
-.carousel-control-prev-icon, .carousel-control-next-icon {
-    height: 30px;
-    width: 30px;
-    outline: black;
-    background-color:black;
-    background-size: 60%, 60%;
-    border-radius: 50%;
-    border: 1px solid black;
-    position: absolute;
-      }
-
-      [type=radio] { 
-        position: relative;
-        opacity: 40;
-        width: 10;
-        height: 10;
-      }
-
-      /* IMAGE STYLES */
-      [type=radio] + img {
-        cursor: pointer;
-      }
-
-      /* CHECKED STYLES */
-      [type=radio]:checked + img {
-        outline: 4px solid #f00;
-      }
-
-      [type=radio] + div{
-        cursor: pointer;
-      }
-
-      /* CHECKED STYLES */
-      [type=radio]:checked + div{
-        outline: 4px solid #f00;
-      }
-
-
-        .container-fluid {
-          position: relative;
-          width: 100%;
-        }
-
-        /* Make the image responsive */
-        .container-fluid img {
-          width: 100%;
-          height: 550px;
-        }
-        
-
-        /* Style the button and place it in the middle of the container/image */
-        .container-fluid .btn {
-          position: absolute;
-          top: 35%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          -ms-transform: translate(-50%, -50%);
-          background-color: white;
-          color:orangered;
-          font-size: 16px;
-          padding: 12px 24px;
-          cursor: pointer;
-          border-radius: 30px;
-          font-family: 'Montserrat', sans-serif;
-        }
-
-        /* CSS for multistep-form*/       
-        /* Style the form */
-          #regForm {
-            background-color: #ffffff;
-            margin: 40px auto;
-            padding: 15px;
-            width: 80%;
-            min-width: 365px;
-          }
-
-          /* Hide all steps by default: */
-          .tab {
-            display: none;
-          }
-
 </style>
-
-
-
-  </head>
-  <body ng-app="" onload="DayTime()">
-    
+    <title>India's Premier Yog & Fitness Services</title>
+</head>
+<body ng-app="" onload="DayTime()">   
     {{{body}}}
-  </body>
+</body>
 </html>

@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-
+const Package = require('../models/packages');
 
 
 //Student Bio & Session
@@ -18,9 +18,10 @@ var studentSchema = mongoose.Schema({
     time:String,
     method:String,
     program:String,
-    partner:String,
+    participants:String,
     timeSlot:String,
-    timeSlot1:String
+    timeSlot1:String,
+    bookPackage : {type: mongoose.Schema.Types.ObjectId, ref:'Package' }
 })
 
 
