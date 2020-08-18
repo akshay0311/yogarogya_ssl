@@ -175,7 +175,7 @@ ol {
 	border: none;
 	font-size: 16px;
 	font-weight: 600;
-	min-width: 167px;
+	min-width: 100px;
 	padding: 14px 30px;
 	border-radius: 50px;
 	text-transform: uppercase;
@@ -197,7 +197,7 @@ ol {
 
 .site-btn.sb-gradient {
 	color: #fff;
-	padding: 13px 29px;
+	padding: 10px 20px;
 	position: relative;
 	-webkit-transition: all 0.4s;
 	-o-transition: all 0.4s;
