@@ -27,6 +27,10 @@ router.post('/book_trial',(req,res,next)=>{
       const {name,email,password,phone} = req.body;
       if (name && email && password && phone){
             e = email;
+            Student.findOne({
+                  email: email
+                }).then(user => {
+                    if (!user){  
             const newUser = new Student({
                   name,
                   email,
@@ -43,6 +47,9 @@ router.post('/book_trial',(req,res,next)=>{
                         .catch(err => console.log(err));
                         }) 
                   })   
+      }
+      else{res.redirect('/student/login')}
+     })
       }
       else {
             // for online or in-person

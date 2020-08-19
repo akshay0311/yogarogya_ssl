@@ -10,8 +10,7 @@ const Student = require('../models/profile');
 
 async function findInPackage(f){
     if (f == 1) var z = await Package.find({mode:'online'})
-    if (f == 2) var z = await Package.find({hours:'peak'})
-    if (f == 3) var z = await Package.find({mode:'non-peak'})
+    if (f == 2) var z = await Package.find({mode:'offline'})
     return z;
 }
 
@@ -20,8 +19,7 @@ async function findInPackage(f){
 function renderPricingPage(req,res,mode,p,hours){
     var single = [], couple= [], group = [],result;
     if (mode === 'online')  result = findInPackage(1);
-    if (hours === 'peak')  result = findInPackage(2);
-    if (hours === 'non-peak')  result = findInPackage(3); 
+    if (mode === 'offline')  result = findInPackage(2) 
     result.then(package=>{
         for (var i =0 ; i<package.length; i+=1){
             if (package[i].participants == 'single'){
@@ -50,7 +48,8 @@ function renderPricingPage(req,res,mode,p,hours){
                 single,
                 couple,
                 group,
-                p
+                p,
+                mode
             })//render closed     
         })//then closed
     .catch(err=>console.log(err))

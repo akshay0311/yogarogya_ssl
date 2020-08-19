@@ -1,15 +1,15 @@
 <!---------NavBar-------------------------------->
 <nav class="navbar navbar-expand-lg navbar-dark navbar-custom1 w3-padding-large">
-    <a class="navbar-brand" href="/"><img src="http://localhost:5005/yogarogya_log.png" alt=""></a>
+    <a class="navbar-brand" href="/"><img src="http://yogarogya.in/yogarogya_log.png" alt=""></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
     </button>
 </nav>
 <br>
 <br>
-<div class="container" style="width: 500px;">
+<div class="container w3-white" style="width: 80%;font-family: Tenor Sans, sans-serif;">
   <div class="row">
-    <div class="col-12 w3-border w3-border-dark-grey w3-padding-large w3-round-xlarge">
+    <div class="col-12 w3-padding-large w3-round-xlarge">
           <h3 class="w3-panel w3-padding w3-light-grey">Pay Now!</h3>
           <br>
           <form action="/book_package/donePayment" method="POST">
@@ -26,7 +26,9 @@
             <input type="text" name="sessions" value="{{sessions}}" hidden>
             <input type="text" name="mode" value="{{mode}}" hidden>
             <input type="text" name="participants" value="{{participants}}" hidden>
-            <button class="btn btn-info w3-round-xlarge">Click To Pay!</button>
+            <br>
+            <br>
+            <button class="site-btn sb-line-gradient">Click To Pay!</button>
           </form>        
     </div>
   </div>
