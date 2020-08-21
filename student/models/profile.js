@@ -4,7 +4,8 @@ const Package = require('../models/packages');
 
 //Student Bio & Session
 var studentSchema = mongoose.Schema({
-    name : {type:String},
+    fname : {type:String},
+    lname : {type:String},
     email : {type:String},
     password : {type:String},
     country : String,

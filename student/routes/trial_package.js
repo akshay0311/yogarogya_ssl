@@ -25,15 +25,16 @@ var e;
 // posting trial 
 router.post('/book_trial',(req,res,next)=>{
       /*--------------- Users Login Info------------------*/
-      const {name,email,password,phone,street,city,pincode,state,country} = req.body;
-      if (name && email && password && phone){
+      const {fname,lname,email,password,phone,street,city,pincode,state,country} = req.body;
+      if (fname && lname && email && password && phone){
             e = email;
             Student.findOne({
                   email: email
                 }).then(user => {
                     if (!user){  
             const newUser = new Student({
-                  name,
+                  fname,
+                  lname,
                   email,
                   password,
                   phone
