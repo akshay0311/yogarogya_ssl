@@ -9,6 +9,7 @@ const Student = require('../models/profile');
 // Authentication
 var initializePassport = require('../../config/passport');
 const { route } = require('./profile');
+const { count } = require('../models/profile');
 initializePassport(passport);
 
 // select your categories
@@ -24,7 +25,7 @@ var e;
 // posting trial 
 router.post('/book_trial',(req,res,next)=>{
       /*--------------- Users Login Info------------------*/
-      const {name,email,password,phone} = req.body;
+      const {name,email,password,phone,street,city,pincode,state,country} = req.body;
       if (name && email && password && phone){
             e = email;
             Student.findOne({
@@ -43,17 +44,15 @@ router.post('/book_trial',(req,res,next)=>{
                   newUser.password = hash;
                   newUser
                         .save()
-                        .then(user =>{console.log("ok");res.redirect('/student/login')})
+                        .then(user =>console.log("ok"))
                         .catch(err => console.log(err));
                         }) 
                   })   
-      }
-      else{res.redirect('/student/login')}
-     })
-      }
-      else {
+            }
+            })            
+            }
+      else if (req.body.d == 'online' || req.body.d == 'person'){
             // for online or in-person
-            if (req.body.d == 'online' || req.body.d == 'person'){
                 Student.findOne({email:e}).then(user=>{
                   user.method = req.body.d;
                   user.save().then(usr=>console.log(usr));
@@ -88,15 +87,25 @@ router.post('/book_trial',(req,res,next)=>{
                         user.program = req.body.d;
                         user.save().then(usr=>console.log(usr));
                         })        
-                  }            
+                  }    
+            else if (street && city && pincode && state && country){
+                  Student.findOne({email:e}).then(user=>{
+                        user.street = street;
+                        user.city = city;
+                        user.state = state;
+                        user.country = country;
+                        user.pincode = pincode; 
+                        user.save().then(usr=>{console.log(usr);}) 
+                  }) 
+            }                        
             else{
                   Student.findOne({email:e}).then(user=>{
                     user.timeSlot = req.body.d1;
                     user.timeSlot1 = req.body.d2;
-                    user.save().then(usr=>{console.log(usr);res.redirect('/student/login'); 
+                    user.save().then(usr=>{console.log(usr); 
                   });
                   })        
               }
-            }
+
       })            
 module.exports = router;
