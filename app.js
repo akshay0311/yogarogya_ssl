@@ -68,7 +68,10 @@ app.use(function(req, res, next) {
   next();
 });
 
-
+// GET about page
+app.get('/about',(req,res,next)=>{
+  res.render('about.hbs')
+})
 
 // Routes for instructors
 app.use('/', require('./instructor/routes/index.js'));

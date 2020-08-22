@@ -27,6 +27,7 @@ router.post('/book_trial',(req,res,next)=>{
       /*--------------- Users Login Info------------------*/
       const {fname,lname,email,password,phone,street,city,pincode,state,country} = req.body;
       if (fname && lname && email && password && phone){
+            console.log(1);
             e = email;
             Student.findOne({
                   email: email

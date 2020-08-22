@@ -202,7 +202,7 @@
               $.ajax({
                   type:'POST',
                   url: '/trial_package/book_trial',
-                  data :{'name':pers_info[0],'email':pers_info[1],'password':pers_info[2],'phone':pers_info[3]},
+                  data :{'fname':pers_info[0],'lname':pers_info[1],'email':pers_info[1],'password':pers_info[2],'phone':pers_info[3]},
                   dataType: 'json',
                   success : function(data){
                       console.log('success');
