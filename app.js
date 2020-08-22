@@ -8,6 +8,7 @@ const session = require('express-session');
 var path = require('path');
 const app = express();
 const fs = require('fs');
+const https = require('https');
 var multer = require("multer");
 const bodyParser = require("body-parser");
 const User = require('./instructor/models/User');
@@ -16,6 +17,12 @@ const Package = require('./student/models/packages');
 
 // DB Config
 const db = require('./config/keys').mongoURI;
+
+// https options
+const options = {
+  key: fs.readFileSync('key.pem'),
+  cert: fs.readFileSync('cert.pem')
+};
 
 // Connect to MongoDB
 mongoose
@@ -74,18 +81,18 @@ app.get('/about',(req,res,next)=>{
 })
 
 // Routes for instructors
-app.use('/', require('./instructor/routes/index.js'));
-app.use('/users', require('./instructor/routes/users.js'));
+//app.use('/', require('./instructor/routes/index.js'));
+//app.use('/users', require('./instructor/routes/users.js'));
 
 
 //Routes for students
-app.use('/student', require('./student/routes/profile'));
+//app.use('/student', require('./student/routes/profile'));
 
 //Routes for package trial
-app.use('/trial_package', require('./student/routes/trial_package'));
+//app.use('/trial_package', require('./student/routes/trial_package'));
 
 //Routes for package trial
-app.use('/book_package', require('./student/routes/book_package'));
+//app.use('/book_package', require('./student/routes/book_package'));
 
 
 
@@ -111,7 +118,7 @@ app.delete('/PackageApi',(req,res,next)=>{
   })
 })
 
-
-const PORT = process.env.PORT || 5005;
-
-app.listen(PORT, console.log(`Server started on port ${PORT}`));
+https.createServer(options, function (req, res) {
+  res.writeHead(200);
+  res.end("hello world\n");
+}).listen(8000);
