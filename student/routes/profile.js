@@ -139,7 +139,6 @@ var addresses = [];
 // get dashboard
 router.get('/dashboard',checkAuthenticated,(req,res)=>{
   var user = req.user;
-  ct = [{name : 'yo', progress:'90%'},{name : 'to', progress:'50%'}]
   res.render('dashboard1',
   {
     name:user.name,
@@ -156,28 +155,6 @@ router.get('/dashboard',checkAuthenticated,(req,res)=>{
   }
   );
 })
-
-// post route for storing  customers coordinates
-router.post('/geoloc',(req,res)=>{
-  var user = req.user;
-  console.log(req.body.address);
-  Student.findOne({ email: req.body.email }).then(usr => {
-    addresses.push(req.body.address);
-    res.render("dashboard1",{
-      name:user.name,
-      email:user.email,
-      country:user.country,
-      city: user.city,
-      state: user.state,
-      street : user.street,
-      pincode: user.pincode,
-      phone : user.phone,
-      pp:user.profile_pic,
-      addresses: addresses
-    });
-  })
-  .catch(err=>console.log(err))
-})  
 
 
 

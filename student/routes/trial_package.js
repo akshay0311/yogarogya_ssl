@@ -27,7 +27,6 @@ router.post('/book_trial',(req,res,next)=>{
       /*--------------- Users Login Info------------------*/
       const {fname,lname,email,password,phone,street,city,pincode,state,country} = req.body;
       if (fname && lname && email && password && phone){
-            console.log(1);
             e = email;
             Student.findOne({
                   email: email
@@ -90,9 +89,9 @@ router.post('/book_trial',(req,res,next)=>{
                         user.save().then(usr=>console.log(usr));
                         })        
                   }    
-            else if (street && city && pincode && state && country){
+            else if (house && city && pincode && state && country){
                   Student.findOne({email:e}).then(user=>{
-                        user.street = street;
+                        user.house = house;
                         user.city = city;
                         user.state = state;
                         user.country = country;

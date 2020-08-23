@@ -11,7 +11,7 @@ var studentSchema = mongoose.Schema({
     country : String,
     state : String,
     city : String,
-    street : String,
+    house : String,
     pincode : String,
     phone : {type:String},
     profile_pic : {type:String},  
