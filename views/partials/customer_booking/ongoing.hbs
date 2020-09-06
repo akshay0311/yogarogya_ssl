@@ -16,8 +16,16 @@
                <li class="mr-3"><b>Validity For: </b>{{this.validity}}</li>
             </ul> 
          </div>
+         <br>
+         <h3>Progress</h3>
+         <div class="w3-light-grey w3-border w3-border-grey w3-round-xlarge">
+            <div class="w3-round-xlarge w3-teal" style="height:24px;width:{{this.progress}}%;">
+               {{this.progress}}%</div>
+          </div>
       </div>
       {{/if}}
    {{/each}}   
    </div>
+   <br>
+   <br>
 </div>

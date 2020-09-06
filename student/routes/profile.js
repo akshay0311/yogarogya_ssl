@@ -137,6 +137,11 @@ router.post('/register', (req, res) => {
   }
 });
 
+function findProgress(r,t){
+    return ((t-r)/t)*100;
+}
+
+
 /*--------------------------------------Customer Booking Page---------------------------*/
 router.get('/dashboard',checkAuthenticated,(req,res,next)=>{
   var user = req.user;
@@ -162,7 +167,9 @@ router.get('/dashboard',checkAuthenticated,(req,res,next)=>{
         .where('_id')
         .in(packageIds).exec()
         .then(packages=>{
-          for (var i =0 ; i < packages.length; i+=1){      
+          for (var i =0 ; i < packages.length; i+=1){ 
+            // finding the progress in the session
+            let progress = findProgress(result[i].remaining_sessions,packages[i].sessions);     
             packageInfo.push({
                   id : result[i]._id,
                   price : packages[i].price,
@@ -171,7 +178,9 @@ router.get('/dashboard',checkAuthenticated,(req,res,next)=>{
                   validity : packages[i].validity,
                   completed,
                   remaining_sessions : result[i].remaining_sessions,
+                  progress
             })
+          
           }
 
           res.render('customer_dashboard',{packageInfo,fname:user.fname,p: user.profile_pic})
