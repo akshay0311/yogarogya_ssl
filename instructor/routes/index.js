@@ -162,32 +162,6 @@ else{res.redirect("/dashboard")}
 });
 
 
-
-
-/*-------Deleting uploads-----------*/
-router.post("/dashboard/delete",(req,res)=>{
-    var {d1,d2,d3,d4,d5,d6,d7,d8,pp} = req.body;
-      
-     var pth0 = path.join(path.dirname(require.main.filename),"/uploads/"+pp);
-     var pth1 = path.join(path.dirname(require.main.filename),"/uploads/"+d1);
-     var pth2 = path.join(path.dirname(require.main.filename),"/uploads/"+d2);
-     var pth3 = path.join(path.dirname(require.main.filename),"/uploads/"+d3);
-     var pth4 = path.join(path.dirname(require.main.filename),"/uploads/"+d4);
-     var pth5 = path.join(path.dirname(require.main.filename),"/uploads/"+d5);
-     var pth6 = path.join(path.dirname(require.main.filename),"/uploads/"+d6);
-     var pth7 = path.join(path.dirname(require.main.filename),"/uploads/"+d7);
-     var pth8 = path.join(path.dirname(require.main.filename),"/uploads/"+d8);
-     if (pp) {fs.unlink(pth0,(err)=>{if (err) res.redirect("/dashboard"); else  res.redirect("/dashboard");});}
-     if (d1) {fs.unlink(pth1,(err)=>{if (err) res.redirect("/dashboard"); else  res.redirect("/dashboard");});}
-     if (d2) {fs.unlink(pth2,(err)=>{if (err) res.redirect("/dashboard"); else  res.redirect("/dashboard");});}
-     if (d3) {fs.unlink(pth3,(err)=>{if (err) res.redirect("/dashboard"); else  res.redirect("/dashboard");});}
-     if (d4) {fs.unlink(pth4,(err)=>{if (err) res.redirect("/dashboard"); else  res.redirect("/dashboard");});}
-     if (d5) {fs.unlink(pth5,(err)=>{if (err) res.redirect("/dashboard"); else  res.redirect("/dashboard");});}
-     if (d6) {fs.unlink(pth6,(err)=>{if (err) res.redirect("/dashboard"); else  res.redirect("/dashboard");});}
-     if (d7) {fs.unlink(pth7,(err)=>{if (err) res.redirect("/dashboard"); else  res.redirect("/dashboard");});}
-     if (d8) {fs.unlink(pth8,(err)=>{if (err) res.redirect("/dashboard"); else  res.redirect("/dashboard");});}
-})
-
 router.get("/terms",(req,res)=>{
   res.render("terms")
 })

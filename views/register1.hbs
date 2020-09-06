@@ -15,15 +15,28 @@
             {{/each}}
       {{/if}}
       <form action="/student/register" method="POST" class="w3-text-dark-gray">
+        <!-----First Name----------->
         <div class="form-group">
-          <label for="name">Full Name</label>
+          <label for="name">First Name</label>
           <input
             type="name"
-            id="name"
-            name="name"
+            id="fname"
+            name="fname"
             class="form-control"
-            placeholder="Enter Full Name"
-            value="{{name}}"
+            placeholder="Enter First Name"
+            value="{{fname}}"
+          />
+        </div>
+        <!----------------------Last Name------------------->
+        <div class="form-group">
+          <label for="name">Last Name</label>
+          <input
+            type="name"
+            id="lname"
+            name="lname"
+            class="form-control"
+            placeholder="Enter Last Name"
+            value="{{lname}}"
           />
         </div>
         <!--Email-->

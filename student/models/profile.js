@@ -1,20 +1,23 @@
 const mongoose = require('mongoose');
-const Package = require('../models/packages');
+const Book = require('./book');
 
 
 //Student Bio & Session
 var studentSchema = mongoose.Schema({
+    /*------------------Bio of the customer----------------*/
     fname : {type:String},
     lname : {type:String},
     email : {type:String},
     password : {type:String},
+    phone : {type:String},
+    profile_pic : {type:String},  
+    /*----------------------Address of the customer-------------------*/
     country : String,
     state : String,
     city : String,
     house : String,
     pincode : String,
-    phone : {type:String},
-    profile_pic : {type:String},  
+    /*------------------Trial Package Related preferences of the customer---------*/ 
     gender : String,
     time:String,
     method:String,
@@ -22,7 +25,9 @@ var studentSchema = mongoose.Schema({
     participants:String,
     timeSlot:String,
     timeSlot1:String,
-    bookPackage : {type: mongoose.Schema.Types.ObjectId, ref:'Package' }
+    /*--------------------Booked Package Info of the customer-------------------*/
+    bookProgram : [{type:String}],
+    bookPackage : [{type: mongoose.Schema.Types.ObjectId, ref:'Book' }]
 })
 
 

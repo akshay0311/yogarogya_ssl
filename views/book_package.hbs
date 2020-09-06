@@ -7,7 +7,7 @@
 </nav>    
 <!-------Multi-step form------------->
 <form id="regForm" action="/book_package/pricing" method="POST" style="background-color: #f9f2f0; margin-top:0px;">
-
+    <input type="text" name="program" value="{{program}}" hidden>
     <!--------------------------------Tab for online and in-person------------>
     {{>book_packages_tabs/mode_tab}}
     <!------Tab for peak & non-peak hours-------------->

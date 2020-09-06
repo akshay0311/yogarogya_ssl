@@ -88,17 +88,7 @@ router.post('/book_trial',(req,res,next)=>{
                         user.program = req.body.d;
                         user.save().then(usr=>console.log(usr));
                         })        
-                  }    
-            else if (house && city && pincode && state && country){
-                  Student.findOne({email:e}).then(user=>{
-                        user.house = house;
-                        user.city = city;
-                        user.state = state;
-                        user.country = country;
-                        user.pincode = pincode; 
-                        user.save().then(usr=>{console.log(usr);}) 
-                  }) 
-            }                        
+                  }                          
             else{
                   Student.findOne({email:e}).then(user=>{
                     user.timeSlot = req.body.d1;

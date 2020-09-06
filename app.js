@@ -20,6 +20,8 @@ const Package = require('./student/models/packages');
 // DB Config
 const db = require('./config/keys').mongoURI;
 
+
+
 // Connect to MongoDB
 mongoose
   .connect(
@@ -29,14 +31,26 @@ mongoose
   .then(() => console.log('MongoDB Connected'))
   .catch(err => console.log(err));
 
+const exphbs = hbs.create({
+        defaultLayout:'main',
+        extname: '.hbs', 
+        partialsDir: 'views/partials',
+        helpers :{ 
+            times: function(n, block) {
+                  var accum = '';
+                  for(var i = 0; i < n; ++i)
+                      accum += block.fn(i);
+                  return accum;
+               }
+            }   
+        })
 
-app.use(redirectToHTTPS([], [], 301));
+//app.use(redirectToHTTPS([], [], 301));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 // express-handlebar
-app.engine('.hbs', hbs({extname: '.hbs',
-                        partialsDir: 'views/partials'}));
+app.engine('.hbs',exphbs.engine);
 app.set('view engine', '.hbs');
 
 
@@ -118,20 +132,22 @@ app.delete('/PackageApi',(req,res,next)=>{
 
 
 
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 5001;
 
-app.listen(PORT, console.log(`Server started on port ${PORT}`));
-
+/*
 const httpServer = http.createServer(app);
 const httpsServer = https.createServer({
   key: fs.readFileSync('./yogarogya.key','utf8'),
   cert: fs.readFileSync('./fdca413655f05bb4.pem','utf8'),
 }, app);
-
-httpServer.listen(PORT, () => {
+*/
+app.listen(PORT);
+/*--httpServer.listen(PORT, () => {
     console.log('HTTP Server running on port '+PORT);
 });
 
 httpsServer.listen(443, () => {
     console.log('HTTPS Server running on port 443');
 });
+
+----*/

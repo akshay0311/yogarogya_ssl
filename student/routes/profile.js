@@ -5,6 +5,8 @@ const passport = require('passport');
 const multer = require("multer");
 // Load Student model
 const Student = require('../models/profile');
+const Book = require ('../models/book')
+const Packages = require('../models/packages');
 
 //Storage Config
 var storage = multer.diskStorage({ 
@@ -23,6 +25,11 @@ var upload = multer({ storage: storage });
 // Authentication
 var initializePassport = require('../../config/passport');
 const { route } = require('../../instructor/routes');
+const package = require('../models/packages');
+const { check } = require('express-validator');
+const { session } = require('passport');
+const User = require('../../instructor/models/User');
+const student = require('../models/profile');
 initializePassport(passport);
 
 // Register Page
@@ -30,6 +37,7 @@ router.get('/register', (req, res) => res.render('register1'));
 
 // Login Page
 router.get('/login', (req, res) => res.render('login1'));
+
 
 // Post route for  Login
 router.post('/login', (req, res, next) => {
@@ -47,20 +55,14 @@ router.get('/logout', (req, res) => {
   res.redirect('/');
 });  
 
-// Get route for  Logout
-router.get('/logout', (req, res) => {
-  req.logout();
-  req.flash('success_msg', 'You are logged out');
-  res.redirect('/');
-});
 
 /*--------------------post route -------*/
 //8: Post route for Registration
 router.post('/register', (req, res) => {
-  const { name, email, phone,password, password2,country,state,pincode,city,street} = req.body;
+  const { fname,lname, email, phone,password, password2,country,state,pincode,city,street} = req.body;
   let errors = [];
 
-  if (!name || !email || !password || !password2){
+  if (!fname || !lname || !email || !password || !password2){
     name,
     email,
     password,
@@ -78,7 +80,8 @@ router.post('/register', (req, res) => {
   if (errors.length > 0) {
     res.render('register1', {
       errors,
-      name,
+      fname,
+      lname,
       email,
       password,
       phone
@@ -89,7 +92,8 @@ router.post('/register', (req, res) => {
         errors.push({ msg: 'Email already exists' });
         res.render('register1', {
           errors,
-          name,
+          fname,
+          lname,
           email,
           password,
           password2,
@@ -103,7 +107,8 @@ router.post('/register', (req, res) => {
       } else {
         //creating new user
         const newUser = new Student({
-          name,
+          fname,
+          lname,
           email,
           password,
           phone,
@@ -122,10 +127,6 @@ router.post('/register', (req, res) => {
               .save()
               .then(user => {
                 console.log(user);
-                req.flash(
-                  'success_msg',
-                  'You are now registered and can log in'
-                );
                 res.redirect('/student/login');
               })
               .catch(err => console.log(err));
@@ -135,57 +136,110 @@ router.post('/register', (req, res) => {
     });
   }
 });
-var addresses = [];
-// get dashboard
-router.get('/dashboard',checkAuthenticated,(req,res)=>{
+
+/*--------------------------------------Customer Booking Page---------------------------*/
+router.get('/dashboard',checkAuthenticated,(req,res,next)=>{
   var user = req.user;
-  res.render('dashboard1',
-  {
-    name:user.name,
-    email:user.email,
-    country:user.country,
-    city: user.city,
-    state: user.state,
-    street : user.street,
-    pincode: user.pincode,
-    phone : user.phone,
-    pp:user.profile_pic,
-    ct : ct,
-    addresses: addresses
-  }
-  );
+  var bookPackages = user.bookPackage;
+  var bookProgram = user.bookProgram;
+  var packageIds = [];
+  var packageInfo = [];
+  Book.find()
+  .where('_id')
+  .in(bookPackages).exec()
+  .then(result=>{
+        for (var i =0 ; i < result.length; i+=1){
+            packageIds.push(result[i].package)  
+            // Checking if packages are remaining for the booked session 
+            if (result[i].remaining_sessions <= 0)
+                completed = true;
+            else
+                completed = false; 
+          }     
+        
+        var completed;
+        Packages.find()
+        .where('_id')
+        .in(packageIds).exec()
+        .then(packages=>{
+          for (var i =0 ; i < packages.length; i+=1){      
+            packageInfo.push({
+                  id : result[i]._id,
+                  price : packages[i].price,
+                  program : bookProgram[i],
+                  session : packages[i].sessions,
+                  validity : packages[i].validity,
+                  completed,
+                  remaining_sessions : result[i].remaining_sessions,
+            })
+          }
+
+          res.render('customer_dashboard',{packageInfo,fname:user.fname,p: user.profile_pic})
+        })
+  })
+  .catch(err=>console.log(err))
+})
+
+/*----------------------------Fetching Feedback Page by passing BookId to the page-----------------*/
+router.post('/feedback',(req,res,next)=>{
+  const {BookId} = req.body;
+  res.render('feedback',{BookId,p:user.profile_pic}) 
+})
+
+/*----------------------------Fetching customer setting-----------------*/
+router.get('/setting',checkAuthenticated,(req,res,next)=>{
+  var user = req.user;
+  console.log(user);
+  res.render('customer_setting',{
+    fname: user.fname,lname:user.lname,email:user.email,phone:user.phone,pincode:user.pincode,
+    state:user.state,country:user.country,city:user.city,p:user.profile_pic
+  }) 
 })
 
 
-
-// uploading profile pic
-router.post("/dashboard",upload.single("profile_pic"),(req,res)=>{
-  if (req.file!=undefined){
-    Student.findOne({ email: req.body.email }).then(user => {
-      user.profile_pic = req.file.filename;
-      user.save()
-      .then(usr=>res.render('dashboard1',
-      {
-          name:user.name,
-          email:user.email,
-          country:user.country,
-          city: user.city,
-          state: user.state,
-          street : user.street,
-          pincode: user.pincode,
-          phone : user.phone,
-          pp:user.profile_pic,
-          addresses:addresses
-      }
-      ))
-      .catch(err=>console.log(err))  
+/*----------------------------Posting customer setting-----------------*/
+router.post('/setting',upload.single("profile_pic"),(req,res,next)=>{
+  const{fname,lname,password,cpassword,phone,email} = req.body;
+  const{state,country,city,pincode} = req.body;
+       
+  Student.find({email:email})
+  .then(result=>{
+    result[0].fname = fname;
+    result[0].lname = lname;
+    result[0].phone = phone;
+    result[0].state = state;
+    result[0].country = country;
+    result[0].city = city;
+    result[0].pincode = pincode;
+    if (req.file)  result[0].profile_pic = req.file.filename;
+  
+    if (password == cpassword){
+        // Hashing Password
+        bcrypt.genSalt(10, (err, salt) => {
+          bcrypt.hash(result[0].password, salt, (err, hash) => {
+            if (err) throw err;
+            result[0].password = hash;
+            result[0]
+              .save()
+              .then(user => {
+                console.log(user);
+                res.redirect('/student/dashboard');
+              })
+              .catch(err => console.log(err));          
+           })
+        })
+    } 
+    else {
+           result[0].save()
+           .then(user => {
+            console.log(user);
+            res.redirect('/student/dashboard');
+          })
+          .catch(err => console.log(err));  
+    } 
   })
-  .catch(err=>console.log(err));
-}
-else res.redirect('/student/dashboard');
-});
-
-
+  .catch(err=>console.log(err))
+})
 
 
 

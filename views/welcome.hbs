@@ -29,25 +29,31 @@
 
 	<!-- Header Section -->
 	<header class="header-section">
-		<!--<div class="header-top">
+		<!------------------------Book your trial static button------------------------>
+		<div class="header-top w3-padding-large w3-border-4 w3-border-bottom w3-border-light-gray" style="background:white;position:fixed;width:100%;">
 			<div class="row m-0">
-				<div class="col-md-6 d-none d-md-block p-0">
+				<!--<div class="col-md-6 d-none d-md-block p-0">
 					<div class="header-info">
-					<i class="material-icons">map</i>
-					<p>WZ-61, Todapur, New Delhi, (110012)</p>
+						<i class="material-icons">map</i>
+						<p>WZ-61, Todapur, New Delhi, (110012)</p>
 					</div>
 					<div class="header-info">
-					<i class="material-icons">phone</i>
-					<p>9871892380,&nbsp; 9891010030 </p>
+						<i class="material-icons">phone</i>
+						<p>9871892380,&nbsp; 9891010030 </p>
 					</div>
+				</div>-->
+				<div class="col-md-6">
+					<a href="/trial_package" class="site-btn sb-gradient w3-small" 
+						style="padding:10px;"><i>Book Your Trial</i>
+					</a>
 				</div>
 			</div>
-		</div>--->
-		<div class="header-bottom" style="padding-top:50px">
+		</div>
+		<div class="header-bottom mt-4" style="padding-top:50px;">
 			<a href="/" class="site-logo">
 				<img src="yogarogya_log.png" alt="t" style="width: 120px; height:100px;">
 			</a>
-			<div class="container">
+			<div class="container-fluid">
 				<ul class="main-menu">
 					<li><a href="#" class="w3-text-white">Home</a></li>
 					<li><a href="/about" class="w3-text-white">About</a></li>
@@ -62,19 +68,22 @@
 							<li><a href="/users/register" class="w3-text-black">Instructor</a></li>
 							<li><a href="/student/register"class="w3-text-black">Customer</a></li>
 						</ul>
+					</li>	
 					<li><a href="#" class="w3-text-white">Login as:</a>	
 							<ul class="sub-menu">
 								<li><a href="/users/login" class="w3-text-black">Instructor</a></li>
 								<li><a href="/student/login"class="w3-text-black">Customer</a></li>
 							</ul>
-				</ul>
+					</li>	
+				</ul>	
 			</div>
 		</div>
 	</header>
-	<!-- Header Section end -->
-	                                                                              
+	<!-- Header Section end -->                                                                              
 	<!-- Hero Section -->
 	<section class="hero-section">
+		
+		<!-------------------------End of static button--------------------->
 		<div class="hero-social-warp">
 			<div class="hero-social">
 				<a href="https://www.facebook.com/yogarogya.in/">
@@ -129,9 +138,10 @@
 		</div>
 	</section>
 	<!-- Hero Section end -->
-
+	
 	<!-- About Section -->
 	<section class="about-section spad">
+		
 		<div class="container">
 			<div class="section-title text-center">
 				<h2>Welcome to Yogarogya</h2>
@@ -177,6 +187,7 @@
 		</div>
 	</section>
 	<!-- About Section end -->
+	
 	<!-- Classes Section -->
 	<section class="classes-section spad">
 		<div class="container">
@@ -251,7 +262,10 @@
 							<li><b>Validity For 45 days</b></li>
 							<li>Carefully designed modules for practicing a set of Asanas to control and reduce weight</li>
 						</ul>
-						<a href="/book_package" class="site-btn sb-line-gradient">Get started</a>
+						<form action="/book_package" method="POST">
+							<input type="text" name="program" value="Weight Loss" hidden>
+							<button class="site-btn sb-line-gradient">Get started</button>
+						</form>
 					</div>
 				</div>
 				<div class="col-lg-3 col-sm-6">
@@ -267,7 +281,10 @@
 							<li><b>Validity For 45 days</b></li>
 							<li>Carefully designed modules for practicing a set of Asanas to control diabetes</li>
 						</ul>
-						<a href="/book_package" class="site-btn sb-line-gradient">Get started</a>
+						<form action="/book_package" method="POST">
+							<input type="text" name="program" value="Diabetes Control" hidden>
+							<button class="site-btn sb-line-gradient">Get started</button>
+						</form>
 					</div>
 				</div>
 				<div class="col-lg-3 col-sm-6">
@@ -283,7 +300,10 @@
 							<li><b>Validity For 45 days</b></li>
 							<li>Carefully designed modules for practicing a set of Asanas to build immunity</li>
 						</ul>
-						<a href="/book_package" class="site-btn sb-line-gradient">Get started</a>
+						<form action="/book_package" method="POST">
+							<input type="text" name="program" value="Immunity Booster" hidden>
+							<button class="site-btn sb-line-gradient">Get started</button>
+						</form>
 					</div>
 				</div>
 				<div class="col-lg-3 col-sm-6">
@@ -299,7 +319,10 @@
 							<li><b>Validity For 45 days</b></li>
 							<li>Carefully designed modules for practicing a set of Asanas to tone up your Pelvic muscles</li>
 						</ul>
-						<a href="/book_package" class="site-btn sb-line-gradient">Get started</a>
+						<form action="/book_package" method="POST">
+							<input type="text" name="program" value="Post Natal" hidden>
+							<button class="site-btn sb-line-gradient">Get started</button>
+						</form>
 					</div>
 				</div>
 			</div>
@@ -319,7 +342,10 @@
 							<li><b>Validity For 45 days</b></li>
 							<li>Carefully designed modules for practicing a set of Asanas to tone up your Pelvic muscles</li>
 						</ul>
-						<a href="/book_package" class="site-btn sb-line-gradient">Get started</a>
+						<form action="/book_package" method="POST">
+							<input type="text" name="program" value="Pre Natal" hidden>
+							<button class="site-btn sb-line-gradient">Get started</button>
+						</form>
 					</div>
 				</div>
 				<div class="col-lg-3 col-sm-6">
@@ -335,7 +361,10 @@
 							<li><b>Validity For 45 days</b></li>
 							<li>Carefully designed modules for practicing a set of Asanas to strengthen your spine</li>
 						</ul>
-						<a href="/book_package" class="site-btn sb-line-gradient">Get started</a>
+						<form action="/book_package" method="POST">
+							<input type="text" name="program" value="Spine Strengthening" hidden>
+							<button class="site-btn sb-line-gradient">Get started</button>
+						</form>
 					</div>
 				</div>
 				<div class="col-lg-3 col-sm-6">
@@ -351,7 +380,10 @@
 							<li><b>Validity For 45 days</b></li>
 							<li>Carefully designed modules for practicing a set of Asanas to tone up your Pelvic muscles</li>
 						</ul>
-						<a href="/book_package" class="site-btn sb-line-gradient">Get started</a>
+						<form action="/book_package" method="POST">
+							<input type="text" name="program" value="Pink" hidden>
+							<button class="site-btn sb-line-gradient">Get started</button>
+						</form>
 					</div>
 				</div>
 				<div class="col-lg-3 col-sm-6">
@@ -367,7 +399,10 @@
 							<li><b>Validity For 45 days</b></li>
 							<li>Carefully designed modules for practicing a set of Asanas to relax your mind & soul</li>
 						</ul>
-						<a href="/book_package" class="site-btn sb-line-gradient">Get started</a>
+						<form action="/book_package" method="POST">
+							<input type="text" name="program" value="Relaxation" hidden>
+							<button class="site-btn sb-line-gradient">Get started</button>
+						</form>
 					</div>
 				</div>
 			</div>
@@ -448,7 +483,6 @@
 		</div>
 	</footer>
 	<!-- Footer Section end -->
-
 	<div class="back-to-top"><img src="img/icons/up-arrow.png" alt=""></div>
 
 	<!-- Search model -->
