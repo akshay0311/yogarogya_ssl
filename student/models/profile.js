@@ -17,6 +17,8 @@ var studentSchema = mongoose.Schema({
     city : String,
     house : String,
     pincode : String,
+    latitude : Number,
+    longitude : Number,
     /*------------------Trial Package Related preferences of the customer---------*/ 
     gender : String,
     time:String,

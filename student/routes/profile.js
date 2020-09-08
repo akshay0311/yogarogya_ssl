@@ -30,6 +30,7 @@ const { check } = require('express-validator');
 const { session } = require('passport');
 const User = require('../../instructor/models/User');
 const student = require('../models/profile');
+const { app } = require('firebase-admin');
 initializePassport(passport);
 
 // Register Page
@@ -48,7 +49,12 @@ router.post('/login', (req, res, next) => {
     })(req, res, next);
   });
 
-// Get route for  Logout
+
+router.get('/terms1',(req,res,next)=>{
+  res.render("terms1.hbs")
+})
+
+  // Get route for  Logout
 router.get('/logout', (req, res) => {
   req.logout();
   req.flash('success_msg', 'You are logged out');
@@ -59,11 +65,15 @@ router.get('/logout', (req, res) => {
 /*--------------------post route -------*/
 //8: Post route for Registration
 router.post('/register', (req, res) => {
-  const { fname,lname, email, phone,password, password2,country,state,pincode,city,street} = req.body;
+  const { fname,lname, email, phone,password, password2,country,state,pincode,city,street,optradio1} = req.body;
   let errors = [];
-
+  
+  if(!optradio1)
+      errors.push({ msg: 'Please accept terms and conditions'});
+      
   if (!fname || !lname || !email || !password || !password2){
-    name,
+    fname,
+    lname,
     email,
     password,
     errors.push({ msg: 'Please enter all fields' });

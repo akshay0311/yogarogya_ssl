@@ -88,8 +88,15 @@ router.post('/book_trial',(req,res,next)=>{
                         user.program = req.body.d;
                         user.save().then(usr=>console.log(usr));
                         })        
-                  }                          
-            else{
+                  }
+            else if (req.body.type && req.body.type=="geo"){
+                  Student.findOne({email:e}).then(user=>{
+                        user.latitude = req.body.d1;
+                        user.longitude = req.body.d2;      
+                        user.save().then(usr=>console.log(usr));
+                        })
+            }                            
+            else {
                   Student.findOne({email:e}).then(user=>{
                     user.timeSlot = req.body.d1;
                     user.timeSlot1 = req.body.d2;

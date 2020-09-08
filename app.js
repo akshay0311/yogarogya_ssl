@@ -45,7 +45,7 @@ const exphbs = hbs.create({
             }   
         })
 
-app.use(redirectToHTTPS([], [], 301));
+//app.use(redirectToHTTPS([], [], 301));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -132,17 +132,17 @@ app.delete('/PackageApi',(req,res,next)=>{
 
 
 
-const PORT = process.env.PORT || 5001;
+const PORT = process.env.PORT || 5000;
 
-
+/*
 const httpServer = http.createServer(app);
 const httpsServer = https.createServer({
   key: fs.readFileSync('./yogarogya.key','utf8'),
   cert: fs.readFileSync('./fdca413655f05bb4.pem','utf8'),
 }, app);
-
-//app.listen(PORT);
-httpServer.listen(PORT, () => {
+*/
+app.listen(PORT);
+/*--httpServer.listen(PORT, () => {
     console.log('HTTP Server running on port '+PORT);
 });
 
@@ -150,3 +150,4 @@ httpsServer.listen(443, () => {
     console.log('HTTPS Server running on port 443');
 });
 
+----*/

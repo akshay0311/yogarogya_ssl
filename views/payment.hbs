@@ -13,7 +13,17 @@
           <h3 class="w3-panel w3-padding w3-light-grey">Pay Now!</h3>
           <br>
           <form action="/book_package/donePayment" method="POST">
-            <!--Email Id-->
+            <!--------------Fname---------------------->
+            <div class="form-group">
+                <label for="fname"><b class="w3-large">First Name</b></label>
+                <input type="text" class="form-control" name="fname">
+            </div>
+            <!-----------------------lname------------------->
+              <div class="form-group">
+                <label for="lname"><b class="w3-large">Last Name</b></label>
+                <input type="text" class="form-control" name="lname">
+            </div>
+            <!----------------Email Id------------------------->
             <div class="form-group">
                     <label for="email"><b class="w3-large">Email Id:</b></label>
                     <input type="email" class="form-control" name="email">

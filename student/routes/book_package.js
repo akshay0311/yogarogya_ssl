@@ -93,7 +93,7 @@ router.post('/pay',(req,res,next)=>{
 /*-----------------------------------SAVING USER INFO, HIS BOOKED PACKAGE INFO, HIS BOOKED PROGRAM AND HIS BOOKING ID-------------------------*/
 
 router.post('/donePayment',(req,res,next)=>{
-    var {sessions,mode,participants,program,email,password} = req.body;
+    var {fname,lname,sessions,mode,participants,program,email,password} = req.body;
     // Finding the relevant package 
     Package.find({sessions,mode,participants})
      .then(result=>{
@@ -124,6 +124,8 @@ router.post('/donePayment',(req,res,next)=>{
                 else{
                     //creating new Student
                     const newStudent = new Student({
+                        fname,
+                        lname,
                         email,
                         password
                     });

@@ -28,25 +28,25 @@
           <!------------------------Form---------------------------->
           <!--Form is filled with slides-------------------->
           <form  id="regForm" action="" method = "POST" style="font-family: 'Tenor Sans', sans-serif;">
-              <!-----Register Tab ---------------->
+              <!-------0 Register Tab ---------------->
               {{>trial_packages_tabs/register_tab}}
-            <!--------------------------2 Choose your mode tab---------->
+            <!--------------------------1 Choose your mode tab---------->
               {{>trial_packages_tabs/mode_tab}}    
-              <!------------------3 Gender Input tab------------->
+              <!------------------2 Gender Input tab------------->
               {{>trial_packages_tabs/gender_tab}}
-                <!--------------------4 Program tab------------------------------->
+                <!--------------------3 Program tab------------------------------->
               {{>trial_packages_tabs/program_tab}}
-                <!---------------5 Partner tab---------------------->
+                <!---------------4 Partner tab---------------------->
               {{>trial_packages_tabs/partner_tab}}
-               <!-----------------------------------6 Times tab----------------------->
+               <!-----------------------------------5 Times tab----------------------->
               {{>trial_packages_tabs/times_tab}}
-              <!---------------7 Pick time slot tab---------------------->
+              <!---------------6 Pick time slot tab---------------------->
               {{>trial_packages_tabs/timeSlot_tab}}
-              <!--------------8 Add Address Tab---------->
+              <!--------------7 Add Address Tab---------->
               {{>trial_packages_tabs/geolocation_tab}}
 
               
-              <!---Thank you Tab----------->
+              <!------8  Thank you Tab----------->
               <div class="tab" >
                 <div class="container">
                   <div class="row">
@@ -159,6 +159,8 @@
                     d1 = document.querySelector('input[name="timeSlot"]:checked').value;  
                     d2 = document.querySelector('input[name="timeSlot1"]:checked').value; 
                 }
+                if (currentTab == 7 && n >= 0)
+                  d = document.querySelector('input[name="loc"]:checked').value; 
               }    
             catch(e){
                 alert("please select one of the option");
@@ -169,8 +171,8 @@
             else if (currentTab !=6 && currentTab!=0 && currentTab!=7) {
               makeAjaxCall2(d);
             }
-            else{
-              makeAjaxCall3(d1,d2);
+            else if (currentTab == 6){
+              makeAjaxCall3(d1,d2,"timeSlot");
             }  
             return true;
         } 
@@ -196,11 +198,11 @@
                 }
               });
             }  
-            function makeAjaxCall3(d1,d2){   
+            function makeAjaxCall3(d1,d2,type){   
               $.ajax({
                 type:'POST',
                 url: '/trial_package/book_trial',
-                data :{'d1':d1 , 'd2':d2},
+                data :{'d1':d1 , 'd2':d2, 'type':type},
                 dataType: 'json',
                 success : function(data){
                     console.log('success');
@@ -214,13 +216,18 @@
             var days = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
             
             var date = new Date();
-            console.log(date);
-            document.getElementById("tommorrow").innerHTML = date.getDate()+1;
-            document.getElementById("dateAfter").innerHTML = date.getDate()+2;
-            document.getElementById("dateAfter1").innerHTML = date.getDate()+3; 
+            // setting date to +1
+            date.setDate(date.getDate() + 1)
+            document.getElementById("tommorrow").innerHTML = date.getDate();
+            // setting date to +1
+            date.setDate(date.getDate() + 1)
+            document.getElementById("dateAfter").innerHTML = date.getDate();
+            // setting date to +1
+            date.setDate(date.getDate() + 1)
+            document.getElementById("dateAfter1").innerHTML = date.getDate(); 
+              
             document.getElementById("dayAfter").innerHTML = days[(date.getDay()+1)%7];
             document.getElementById("dayAfter1").innerHTML = days[(date.getDay()+2)%7];
-            console.log(days[date.getDay()+2]);
         }
 
      /*---------------------------------Geolocation---------------------------*/   
@@ -244,6 +251,7 @@
           navigator.geolocation.getCurrentPosition(function(p){
             lat = p.coords.latitude;
             long = p.coords.longitude;
+            makeAjaxCall3(lat,long,"geo");
             console.log(lat);
             initMap(lat,long);
           })
