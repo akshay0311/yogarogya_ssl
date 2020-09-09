@@ -231,31 +231,12 @@ router.post('/setting',upload.single("profile_pic"),(req,res,next)=>{
     result[0].city = city;
     result[0].pincode = pincode;
     if (req.file)  result[0].profile_pic = req.file.filename;
-  
-    if (password == cpassword){
-        // Hashing Password
-        bcrypt.genSalt(10, (err, salt) => {
-          bcrypt.hash(result[0].password, salt, (err, hash) => {
-            if (err) throw err;
-            result[0].password = hash;
-            result[0]
-              .save()
-              .then(user => {
-                console.log(user);
-                res.redirect('/student/dashboard');
-              })
-              .catch(err => console.log(err));          
-           })
-        })
-    } 
-    else {
-           result[0].save()
-           .then(user => {
-            console.log(user);
-            res.redirect('/student/dashboard');
-          })
-          .catch(err => console.log(err));  
-    } 
+    result[0].save()
+    .then(user => {
+    console.log(user);
+    res.redirect('/student/dashboard');
+  })
+  .catch(err => console.log(err));  
   })
   .catch(err=>console.log(err))
 })
